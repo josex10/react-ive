@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 export default function Dashboard() {
@@ -24,12 +25,12 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       className={`relative z-20 py-32 transition-all duration-1000 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
     >
       <div className="container mx-auto max-w-6xl px-6">
-        
+
         <div className="mb-20 text-center">
           <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-white md:text-5xl">
             See your business, <span className="text-white/40">clearly</span>
@@ -40,7 +41,7 @@ export default function Dashboard() {
         </div>
 
         {/* Dashboard Mockup Container */}
-        <div 
+        <div
           className={`relative mx-auto w-full max-w-5xl rounded-[2.5rem] bg-gradient-to-br from-brand-cyan/30 via-white/5 to-brand-electric/20 p-2 shadow-2xl transition-all duration-1000 ease-out ${isVisible ? 'scale-100 translate-y-0' : 'scale-[0.98] translate-y-8'}`}
         >
           {/* Inner Dashboard UI */}
@@ -48,9 +49,7 @@ export default function Dashboard() {
             {/* Top Bar */}
             <div className="flex h-16 items-center justify-between border-b border-white/5 px-6 lg:px-8">
               <div className="flex items-center gap-4">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-brand-electric to-brand-cyan shadow">
-                   <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M3 9L7.5 4.5L12 9L7.5 13.5L3 9Z" fill="white" /><path d="M8 9L12.5 4.5L15 7L10.5 11.5L8 9Z" fill="white" className="opacity-60" /></svg>
-                </div>
+                <Image src="/reactive-logo-isotipo.svg" alt="Logo" width={32} height={32} />
                 <div className="hidden sm:block">
                   <span className="text-sm font-bold text-white">Operations Center</span>
                 </div>
@@ -58,8 +57,8 @@ export default function Dashboard() {
 
               <div className="flex items-center gap-5">
                 <div className="hidden items-center gap-2 rounded-full bg-white/5 px-4 py-1.5 text-xs font-medium text-white/40 md:flex">
-                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                   Search everything... (⌘K)
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                  Search everything... (⌘K)
                 </div>
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-tr from-品牌-cyan to-white/20 text-xs font-bold text-white shadow-inner">
                   JB
@@ -71,7 +70,7 @@ export default function Dashboard() {
               {/* Sidebar */}
               <div className="hidden w-60 flex-col gap-2 border-r border-white/5 bg-white/[0.02] px-4 py-6 md:flex">
                 {['Overview', 'Orders', 'Inventory', 'Customers', 'Analytics', 'Settings'].map((item, i) => (
-                  <div 
+                  <div
                     key={item}
                     className={`flex cursor-pointer items-center gap-3 rounded-xl px-4 py-3 text-sm transition-colors ${i === 0 ? 'bg-brand-cyan/10 font-bold text-brand-cyan' : 'font-medium text-white/50 hover:bg-white/5 hover:text-white/80'}`}
                   >
@@ -91,8 +90,8 @@ export default function Dashboard() {
                     { label: "Avg. Processing Time", value: "2.4 hrs", trend: "-1.5 hrs", positive: true },
                     { label: "Pending Approvals", value: "12", trend: "Requires action", positive: false }
                   ].map((stat, i) => (
-                    <div 
-                      key={i} 
+                    <div
+                      key={i}
                       className="rounded-2xl border border-white/5 bg-white/5 p-5 shadow-sm backdrop-blur-md"
                     >
                       <div className="mb-3 text-xs font-medium text-white/50">{stat.label}</div>
@@ -104,18 +103,18 @@ export default function Dashboard() {
 
                 {/* Charts Area */}
                 <div className="grid grid-cols-1 gap-6 xl:grid-cols-[2fr_1fr]">
-                  
+
                   {/* Main Chart */}
                   <div className="rounded-2xl border border-white/5 bg-white/5 p-6 shadow-sm backdrop-blur-md">
                     <div className="mb-8 text-sm font-bold text-white">Order Volume (30 Days)</div>
-                    
+
                     {/* Fake Bar Chart */}
                     <div className="mt-5 flex h-[220px] items-end gap-2.5">
                       {[...Array(24)].map((_, i) => {
                         const height = Math.floor(Math.random() * 70) + 30;
                         return (
-                          <div 
-                            key={i} 
+                          <div
+                            key={i}
                             style={{
                               animation: `bar-grow 1s ease forwards ${i * 0.04}s`,
                               height: `${height}%` // Using inline style ONLY for dynamic height mapping
@@ -130,7 +129,7 @@ export default function Dashboard() {
                   {/* List / Activity */}
                   <div className="rounded-2xl border border-white/5 bg-white/5 p-6 shadow-sm backdrop-blur-md">
                     <div className="mb-6 text-sm font-bold text-white">Recent Activity</div>
-                    
+
                     <div className="flex flex-col gap-5">
                       {[
                         { text: "Order #4092 processed", time: "2 min ago", color: "bg-green-400" },

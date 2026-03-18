@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 export default function Navbar() {
@@ -17,18 +18,10 @@ export default function Navbar() {
       `}
     >
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between">
-        
+
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 no-underline">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-brand-electric to-brand-cyan shadow-lg shadow-brand-cyan/30">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <path d="M3 9L7.5 4.5L12 9L7.5 13.5L3 9Z" fill="white" className="opacity-90" />
-              <path d="M8 9L12.5 4.5L15 7L10.5 11.5L8 9Z" fill="white" className="opacity-50" />
-            </svg>
-          </div>
-          <span className="text-xl font-extrabold tracking-tight text-brand-cloud">
-            react<span className="text-brand-cyan">IVE</span>
-          </span>
+          <Image src="/reactive-logo.svg" alt="Logo" width={150} height={150} />
         </a>
 
         {/* Desktop Nav */}

@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Hero() {
@@ -154,10 +155,11 @@ export default function Hero() {
             <div className="relative rounded-2xl border border-brand-cyan/40 bg-brand-deep/90 p-6 shadow-[0_0_50px_rgba(0,210,255,0.3)] backdrop-blur-xl">
               <div className="mb-5 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-brand-electric to-brand-cyan shadow-lg">
+                  <Image src="/reactive-logo.svg" alt="Logo" width={100} height={100} />
+                  {/* <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-brand-electric to-brand-cyan shadow-lg">
                     <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M3 9L7.5 4.5L12 9L7.5 13.5L3 9Z" fill="white" /><path d="M8 9L12.5 4.5L15 7L10.5 11.5L8 9Z" fill="white" className="opacity-60" /></svg>
                   </div>
-                  <span className="text-sm font-bold text-white">reactIVE System</span>
+                  <span className="text-sm font-bold text-white">reactIVE System</span> */}
                 </div>
                 <div className="rounded-full bg-brand-cyan/20 px-2.5 py-1 text-[10px] font-bold text-brand-cyan tracking-wider">SYNCED</div>
               </div>
@@ -172,7 +174,7 @@ export default function Hero() {
                   <span className="text-xs font-bold text-green-400">Processing</span>
                 </div>
                 <div className="flex items-center justify-between rounded-xl bg-white/10 px-4 py-2.5">
-                  <span className="text-xs font-medium text-white/80">Client Comms</span>
+                  <span className="text-xs font-medium text-white/80">Client Messages</span>
                   <span className="text-xs font-bold text-green-400">Automated</span>
                 </div>
               </div>

@@ -1,33 +1,35 @@
 "use client";
+import Image from "next/image";
 
 export default function Footer() {
   return (
     <footer className="relative z-10 border-t border-white/5 bg-[#0A1128] pb-10 pt-20">
       <div className="container mx-auto max-w-[1200px] px-6">
-        
+
         <div className="mb-20 flex flex-wrap justify-between gap-15">
-          
+
           {/* Brand Col */}
           <div className="max-w-[300px]">
             <div className="mb-5 flex items-center gap-2">
-              <div className="flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-[#3A7BD5] to-[#00D2FF]">
+              <Image src="/reactive-logo.svg" alt="Logo" width={150} height={150} />
+              {/* <div className="flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-[#3A7BD5] to-[#00D2FF]">
                 <svg width="16" height="16" viewBox="0 0 18 18" fill="none">
                   <path d="M3 9L7.5 4.5L12 9L7.5 13.5L3 9Z" fill="white" className="opacity-90" />
                   <path d="M8 9L12.5 4.5L15 7L10.5 11.5L8 9Z" fill="white" className="opacity-50" />
                 </svg>
-              </div>
-              <span className="text-lg font-extrabold tracking-tight text-[#F4F7F6]">
+              </div> */}
+              {/* <span className="text-lg font-extrabold tracking-tight text-[#F4F7F6]">
                 react<span className="text-[#00D2FF]">IVE</span>
-              </span>
+              </span> */}
             </div>
-            
+
             <p className="mb-6 text-[15px] leading-relaxed text-[#F4F7F6]/60">
               Custom software engineering to automate your business processes and replace manual workflows.
             </p>
 
-            <a 
-              href="https://wa.me/1234567890" 
-              target="_blank" 
+            <a
+              href="https://wa.me/1234567890"
+              target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2.5 text-sm font-semibold text-[#F4F7F6] no-underline transition-all duration-200 hover:bg-white/10 hover:text-[#25D366]"
             >
