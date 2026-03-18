@@ -5,27 +5,18 @@ import LanguageSwitcher from "./LanguageSwitcher";
 export default function Footer() {
   const t = useTranslations('Footer');
   return (
-    <footer className="relative z-10 border-t border-white/5 bg-[#0A1128] pb-10 pt-20">
-      <div className="container mx-auto max-w-[1200px] px-6">
+    <footer className="relative z-10 border-t border-white/5 bg-[#0A1128] pb-10 pt-16 md:pt-20">
+      <div className="container mx-auto max-w-[1200px] px-4 md:px-6">
 
-        <div className="mb-20 flex flex-wrap justify-between gap-15">
+        <div className="mb-12 md:mb-20 flex flex-col md:flex-row justify-between gap-10 md:gap-15">
 
           {/* Brand Col */}
-          <div className="max-w-[300px]">
-            <div className="mb-5 flex items-center gap-2">
-              <Image src="/reactive-logo.svg" alt="Logo" width={150} height={150} />
-              {/* <div className="flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-[#3A7BD5] to-[#00D2FF]">
-                <svg width="16" height="16" viewBox="0 0 18 18" fill="none">
-                  <path d="M3 9L7.5 4.5L12 9L7.5 13.5L3 9Z" fill="white" className="opacity-90" />
-                  <path d="M8 9L12.5 4.5L15 7L10.5 11.5L8 9Z" fill="white" className="opacity-50" />
-                </svg>
-              </div> */}
-              {/* <span className="text-lg font-extrabold tracking-tight text-[#F4F7F6]">
-                react<span className="text-[#00D2FF]">IVE</span>
-              </span> */}
+          <div className="max-w-full md:max-w-[300px] text-center md:text-left">
+            <div className="mb-5 flex justify-center md:justify-start items-center gap-2">
+              <Image src="/reactive-logo.svg" alt="Logo" width={140} height={140} />
             </div>
 
-            <p className="mb-6 text-[15px] leading-relaxed text-[#F4F7F6]/60">
+            <p className="mb-6 text-sm md:text-[15px] leading-relaxed text-[#F4F7F6]/60">
               {t('tagline')}
             </p>
 
@@ -43,32 +34,32 @@ export default function Footer() {
           </div>
 
           {/* Links */}
-          <div className="flex flex-wrap gap-15">
-            <div className="flex flex-col gap-4">
-              <div className="mb-2 text-[15px] font-semibold text-[#F4F7F6]">{t('platform')}</div>
-              <a href="#" className="text-sm text-[#F4F7F6]/60 no-underline transition-colors duration-200 hover:text-[#00D2FF]">Custom Software</a>
-              <a href="#" className="text-sm text-[#F4F7F6]/60 no-underline transition-colors duration-200 hover:text-[#00D2FF]">Process Automation</a>
-              <a href="#" className="text-sm text-[#F4F7F6]/60 no-underline transition-colors duration-200 hover:text-[#00D2FF]">Data Dashboards</a>
-              <a href="#" className="text-sm text-[#F4F7F6]/60 no-underline transition-colors duration-200 hover:text-[#00D2FF]">API Integrations</a>
+          <div className="flex flex-wrap justify-between md:justify-end gap-10 md:gap-15 w-full md:w-auto">
+            <div className="flex flex-col gap-3 md:gap-4">
+              <div className="mb-1 md:mb-2 text-sm md:text-[15px] font-semibold text-[#F4F7F6]">{t('platform')}</div>
+              <a href="#" className="text-xs md:text-sm text-[#F4F7F6]/60 no-underline transition-colors duration-200 hover:text-[#00D2FF]">Custom Software</a>
+              <a href="#" className="text-xs md:text-sm text-[#F4F7F6]/60 no-underline transition-colors duration-200 hover:text-[#00D2FF]">Process Automation</a>
+              <a href="#" className="text-xs md:text-sm text-[#F4F7F6]/60 no-underline transition-colors duration-200 hover:text-[#00D2FF]">Data Dashboards</a>
+              <a href="#" className="text-xs md:text-sm text-[#F4F7F6]/60 no-underline transition-colors duration-200 hover:text-[#00D2FF]">API Integrations</a>
             </div>
 
-            <div className="flex flex-col gap-4">
-              <div className="mb-2 text-[15px] font-semibold text-[#F4F7F6]">{t('company')}</div>
-              <a href="#" className="text-sm text-[#F4F7F6]/60 no-underline transition-colors duration-200 hover:text-[#00D2FF]">{t('about')}</a>
-              <a href="#" className="text-sm text-[#F4F7F6]/60 no-underline transition-colors duration-200 hover:text-[#00D2FF]">Case Studies</a>
-              <a href="#" className="text-sm text-[#F4F7F6]/60 no-underline transition-colors duration-200 hover:text-[#00D2FF]">{t('contact')}</a>
+            <div className="flex flex-col gap-3 md:gap-4">
+              <div className="mb-1 md:mb-2 text-sm md:text-[15px] font-semibold text-[#F4F7F6]">{t('company')}</div>
+              <a href="#" className="text-xs md:text-sm text-[#F4F7F6]/60 no-underline transition-colors duration-200 hover:text-[#00D2FF]">{t('about')}</a>
+              <a href="#" className="text-xs md:text-sm text-[#F4F7F6]/60 no-underline transition-colors duration-200 hover:text-[#00D2FF]">Case Studies</a>
+              <a href="#" className="text-xs md:text-sm text-[#F4F7F6]/60 no-underline transition-colors duration-200 hover:text-[#00D2FF]">{t('contact')}</a>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center justify-between gap-5 border-t border-white/5 pt-8">
-          <div className="text-sm text-[#F4F7F6]/40">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 border-t border-white/5 pt-8">
+          <div className="text-xs md:text-sm text-[#F4F7F6]/40 text-center md:text-left">
             © {new Date().getFullYear()} reactIVE. {t('rights')}
           </div>
           <div className="flex items-center gap-6">
             <LanguageSwitcher />
-            <a href="#" className="hidden text-[13px] text-[#F4F7F6]/40 no-underline hover:text-white/60 sm:block">{t('privacy')}</a>
-            <a href="#" className="hidden text-[13px] text-[#F4F7F6]/40 no-underline hover:text-white/60 sm:block">{t('terms')}</a>
+            <a href="#" className="text-[11px] md:text-[13px] text-[#F4F7F6]/40 no-underline hover:text-white/60">{t('privacy')}</a>
+            <a href="#" className="text-[11px] md:text-[13px] text-[#F4F7F6]/40 no-underline hover:text-white/60">{t('terms')}</a>
           </div>
         </div>
       </div>

@@ -78,32 +78,32 @@ export default function Problem() {
     <section 
       id="problem"
       ref={sectionRef}
-      className={`relative py-32 transition-all duration-1000 ease-out z-10 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
+      className={`relative py-20 md:py-32 transition-all duration-1000 ease-out z-10 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
     >
-      <div className="container mx-auto max-w-5xl px-6">
+      <div className="container mx-auto max-w-5xl px-4 md:px-6">
         
-        <div className="mb-20 text-center">
-          <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-white md:text-5xl">
+        <div className="mb-12 md:mb-20 text-center">
+          <h2 className="mb-4 md:mb-6 text-3xl font-extrabold tracking-tight text-white md:text-5xl">
             {t('title')} <span className="text-white/40">{t('titleHighlight')}</span>
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-white/70">
+          <p className="mx-auto max-w-2xl text-base md:text-lg text-white/70">
             {t('subtitle')}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
           {problems.map((problem, index) => (
             <div 
               key={index}
-              className={`flex flex-col gap-5 rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl transition-all duration-700 hover:border-brand-cyan/30 hover:bg-white/10 hover:-translate-y-1 ${problem.delay} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+              className={`flex flex-col gap-4 md:gap-5 rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8 backdrop-blur-xl shadow-xl transition-all duration-700 hover:border-brand-cyan/30 hover:bg-white/10 hover:-translate-y-1 ${problem.delay} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
             >
-              <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-xl bg-white/10 shadow-inner">
+              <div className="mb-2 md:mb-3 flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-xl bg-white/10 shadow-inner">
                 {problem.icon}
               </div>
-              <h3 className="text-xl font-bold text-white">
+              <h3 className="text-lg md:text-xl font-bold text-white">
                 {problem.title}
               </h3>
-              <p className="text-sm leading-relaxed text-white/60">
+              <p className="text-xs md:text-sm leading-relaxed text-white/60">
                 {problem.description}
               </p>
             </div>

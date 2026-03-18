@@ -73,37 +73,37 @@ export default function Solution() {
     <section 
       id="solutions"
       ref={sectionRef}
-      className={`relative z-20 py-32 transition-all duration-1000 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
+      className={`relative z-20 py-20 md:py-32 transition-all duration-1000 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
     >
       {/* Background element */}
-      <div className="absolute left-0 top-1/2 -z-10 h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-brand-electric/10 blur-[100px]" />
+      <div className="absolute left-0 top-1/2 -z-10 h-[600px] w-full md:w-[600px] -translate-y-1/2 rounded-full bg-brand-electric/10 blur-[100px]" />
 
-      <div className="container mx-auto max-w-6xl px-6">
+      <div className="container mx-auto max-w-6xl px-4 md:px-6">
         
-        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-24">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-24">
           {/* Left Side - Text */}
           <div className="flex flex-col">
-            <div className="mb-6 self-start rounded-full border border-brand-electric/30 bg-brand-electric/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-electric">
+            <div className="mb-4 md:mb-6 self-start rounded-full border border-brand-electric/30 bg-brand-electric/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-electric">
               {t('badge')}
             </div>
             
-            <h2 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-white md:text-5xl">
+            <h2 className="mb-4 md:mb-6 text-3xl font-extrabold leading-tight tracking-tight text-white md:text-5xl">
               {t('title')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-electric to-brand-cyan">{t('titleHighlight')}</span>
             </h2>
             
-            <p className="mb-12 text-lg leading-relaxed text-white/70">
+            <p className="mb-10 md:mb-12 text-base md:text-lg leading-relaxed text-white/70">
               {t('subtitle')}
             </p>
 
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-6 md:gap-8">
               {solutions.map((item, i) => (
-                <div key={i} className="flex gap-5">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-brand-electric/20 bg-brand-electric/10 text-brand-cyan shadow-inner">
+                <div key={i} className="flex gap-4 md:gap-5">
+                  <div className="flex h-10 w-10 md:h-12 md:w-12 shrink-0 items-center justify-center rounded-xl border border-brand-electric/20 bg-brand-electric/10 text-brand-cyan shadow-inner">
                     {item.icon}
                   </div>
                   <div>
-                    <h4 className="mb-2 text-xl font-bold text-white">{item.title}</h4>
-                    <p className="text-sm leading-relaxed text-white/60">{item.description}</p>
+                    <h4 className="mb-1 md:mb-2 text-lg md:text-xl font-bold text-white">{item.title}</h4>
+                    <p className="text-xs md:text-sm leading-relaxed text-white/60">{item.description}</p>
                   </div>
                 </div>
               ))}
@@ -111,39 +111,39 @@ export default function Solution() {
           </div>
 
           {/* Right Side - Visuals */}
-          <div className="relative mt-10 lg:mt-0">
-            <div className="relative z-10 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 to-transparent p-6 backdrop-blur-2xl shadow-2xl">
+          <div className="relative mt-12 lg:mt-0">
+            <div className="relative z-10 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 to-transparent p-4 md:p-6 backdrop-blur-2xl shadow-2xl">
               {/* Fake UI Header */}
-              <div className="mb-6 flex items-center justify-between border-b border-white/10 pb-4">
+              <div className="mb-4 md:mb-6 flex items-center justify-between border-b border-white/10 pb-4">
                 <div className="flex gap-2.5">
-                  <div className="h-3 w-3 rounded-full bg-red-500 shadow-sm" />
-                  <div className="h-3 w-3 rounded-full bg-yellow-400 shadow-sm" />
-                  <div className="h-3 w-3 rounded-full bg-green-500 shadow-sm" />
+                  <div className="h-2.5 w-2.5 md:h-3 md:w-3 rounded-full bg-red-500 shadow-sm" />
+                  <div className="h-2.5 w-2.5 md:h-3 md:w-3 rounded-full bg-yellow-400 shadow-sm" />
+                  <div className="h-2.5 w-2.5 md:h-3 md:w-3 rounded-full bg-green-500 shadow-sm" />
                 </div>
-                <div className="text-xs font-medium text-white/40">app.reactive.com</div>
+                <div className="text-[10px] md:text-xs font-medium text-white/40">app.reactive.com</div>
               </div>
 
               {/* Code/Flow Visual */}
               <div className="flex flex-col gap-4">
-                <div className="rounded-xl border border-white/5 bg-black/50 p-5 shadow-inner">
-                  <div className="mb-3 font-mono text-xs text-purple-400">{t('pipeline')}</div>
-                  <div className="flex flex-wrap items-center gap-3">
-                    <div className="rounded bg-yellow-500/10 px-2 py-1 font-mono text-sm text-yellow-500">WebHook</div>
-                    <div className="text-white/40">→</div>
-                    <div className="rounded bg-blue-400/10 px-2 py-1 font-mono text-sm text-blue-400">Transform</div>
-                    <div className="text-white/40">→</div>
-                    <div className="rounded bg-green-400/10 px-2 py-1 font-mono text-sm text-green-400">Database</div>
+                <div className="rounded-xl border border-white/5 bg-black/50 p-4 md:p-5 shadow-inner">
+                  <div className="mb-3 font-mono text-[10px] md:text-xs text-purple-400">{t('pipeline')}</div>
+                  <div className="flex flex-wrap items-center gap-2 md:gap-3">
+                    <div className="rounded bg-yellow-500/10 px-1.5 py-0.5 md:px-2 md:py-1 font-mono text-xs md:text-sm text-yellow-500">WebHook</div>
+                    <div className="text-white/40 text-xs md:text-sm">→</div>
+                    <div className="rounded bg-blue-400/10 px-1.5 py-0.5 md:px-2 md:py-1 font-mono text-xs md:text-sm text-blue-400">Transform</div>
+                    <div className="text-white/40 text-xs md:text-sm">→</div>
+                    <div className="rounded bg-green-400/10 px-1.5 py-0.5 md:px-2 md:py-1 font-mono text-xs md:text-sm text-green-400">Database</div>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="rounded-xl border border-white/5 bg-black/40 p-5 shadow-inner">
-                    <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-white/50">{t('uptime')}</div>
-                    <div className="text-3xl font-extrabold text-green-400">99.99%</div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+                  <div className="rounded-xl border border-white/5 bg-black/40 p-4 md:p-5 shadow-inner">
+                    <div className="mb-1 md:mb-2 text-[10px] font-semibold uppercase tracking-wider text-white/50">{t('uptime')}</div>
+                    <div className="text-2xl md:text-3xl font-extrabold text-green-400">99.99%</div>
                   </div>
-                  <div className="rounded-xl border border-brand-cyan/20 bg-brand-cyan/10 p-5 shadow-inner">
-                    <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-brand-cyan/80">{t('events')}</div>
-                    <div className="text-3xl font-extrabold text-brand-cyan">1.2M+</div>
+                  <div className="rounded-xl border border-brand-cyan/20 bg-brand-cyan/10 p-4 md:p-5 shadow-inner">
+                    <div className="mb-1 md:mb-2 text-[10px] font-semibold uppercase tracking-wider text-brand-cyan/80">{t('events')}</div>
+                    <div className="text-2xl md:text-3xl font-extrabold text-brand-cyan">1.2M+</div>
                   </div>
                 </div>
               </div>

@@ -29,46 +29,46 @@ export default function Dashboard() {
   return (
     <section
       ref={sectionRef}
-      className={`relative z-20 py-32 transition-all duration-1000 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
+      className={`relative z-20 py-20 md:py-32 transition-all duration-1000 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
     >
-      <div className="container mx-auto max-w-6xl px-6">
+      <div className="container mx-auto max-w-6xl px-4 md:px-6">
 
-        <div className="mb-20 text-center">
-          <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-white md:text-5xl">
+        <div className="mb-12 md:mb-20 text-center">
+          <h2 className="mb-4 md:mb-6 text-3xl font-extrabold tracking-tight text-white md:text-5xl">
             {t('title')} <span className="text-white/40">{t('titleHighlight')}</span>
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-white/70">
+          <p className="mx-auto max-w-2xl text-base md:text-lg text-white/70">
             {t('subtitle')}
           </p>
         </div>
 
         {/* Dashboard Mockup Container */}
         <div
-          className={`relative mx-auto w-full max-w-5xl rounded-[2.5rem] bg-gradient-to-br from-brand-cyan/30 via-white/5 to-brand-electric/20 p-2 shadow-2xl transition-all duration-1000 ease-out ${isVisible ? 'scale-100 translate-y-0' : 'scale-[0.98] translate-y-8'}`}
+          className={`relative mx-auto w-full max-w-5xl rounded-[1.5rem] md:rounded-[2.5rem] bg-gradient-to-br from-brand-cyan/30 via-white/5 to-brand-electric/20 p-1 md:p-2 shadow-2xl transition-all duration-1000 ease-out ${isVisible ? 'scale-100 translate-y-0' : 'scale-[0.98] translate-y-8'}`}
         >
           {/* Inner Dashboard UI */}
-          <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-brand-deep shadow-inner">
+          <div className="overflow-hidden rounded-[1.2rem] md:rounded-[2rem] border border-white/10 bg-brand-deep shadow-inner">
             {/* Top Bar */}
-            <div className="flex h-16 items-center justify-between border-b border-white/5 px-6 lg:px-8">
-              <div className="flex items-center gap-4">
-                <Image src="/reactive-logo-isotipo.svg" alt="Logo" width={32} height={32} />
+            <div className="flex h-14 md:h-16 items-center justify-between border-b border-white/5 px-4 md:px-8">
+              <div className="flex items-center gap-3 md:gap-4">
+                <Image src="/reactive-logo-isotipo.svg" alt="Logo" width={24} height={24} className="md:w-8 md:h-8" />
                 <div className="hidden sm:block">
-                  <span className="text-sm font-bold text-white">{t('opsCenter')}</span>
+                  <span className="text-xs md:text-sm font-bold text-white">{t('opsCenter')}</span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-5">
-                <div className="hidden items-center gap-2 rounded-full bg-white/5 px-4 py-1.5 text-xs font-medium text-white/40 md:flex">
+              <div className="flex items-center gap-3 md:gap-5">
+                <div className="hidden items-center gap-2 rounded-full bg-white/5 px-4 py-1.5 text-[10px] md:text-xs font-medium text-white/40 md:flex">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                   {t('search')}
                 </div>
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-tr from-品牌-cyan to-white/20 text-xs font-bold text-white shadow-inner">
+                <div className="flex h-7 w-7 md:h-8 md:w-8 items-center justify-center rounded-full bg-white/10 text-[10px] font-bold text-white shadow-inner">
                   JB
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-col md:flex-row min-h-[600px]">
+            <div className="flex flex-col md:flex-row min-h-[500px] md:min-h-[600px]">
               {/* Sidebar */}
               <div className="hidden w-60 flex-col gap-2 border-r border-white/5 bg-white/[0.02] px-4 py-6 md:flex">
                 {[t('nav1'), t('nav2'), t('nav3'), t('nav4'), t('nav5'), t('nav6')].map((item, i) => (
@@ -83,9 +83,9 @@ export default function Dashboard() {
               </div>
 
               {/* Main Content Area */}
-              <div className="flex-1 bg-black/20 p-6 lg:p-10">
+              <div className="flex-1 bg-black/20 p-4 md:p-10">
                 {/* Header Stats */}
-                <div className="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="mb-6 md:mb-8 grid grid-cols-2 gap-3 md:gap-5 lg:grid-cols-4">
                   {[
                     { label: t('stat1'), value: "$124,500", trend: "+12.5%", positive: true },
                     { label: t('stat2'), value: "843", trend: "+5.2%", positive: true },
@@ -94,24 +94,24 @@ export default function Dashboard() {
                   ].map((stat, i) => (
                     <div
                       key={i}
-                      className="rounded-2xl border border-white/5 bg-white/5 p-5 shadow-sm backdrop-blur-md"
+                      className="rounded-xl md:rounded-2xl border border-white/5 bg-white/5 p-3 md:p-5 shadow-sm backdrop-blur-md"
                     >
-                      <div className="mb-3 text-xs font-medium text-white/50">{stat.label}</div>
-                      <div className="mb-2 text-2xl font-extrabold text-white">{stat.value}</div>
-                      <div className={`text-xs font-bold ${stat.positive ? 'text-green-400' : 'text-yellow-400'}`}>{stat.trend}</div>
+                      <div className="mb-2 text-[10px] font-medium text-white/50">{stat.label}</div>
+                      <div className="mb-1 text-base md:text-2xl font-extrabold text-white">{stat.value}</div>
+                      <div className={`text-[10px] font-bold ${stat.positive ? 'text-green-400' : 'text-yellow-400'}`}>{stat.trend}</div>
                     </div>
                   ))}
                 </div>
 
                 {/* Charts Area */}
-                <div className="grid grid-cols-1 gap-6 xl:grid-cols-[2fr_1fr]">
+                <div className="grid grid-cols-1 gap-4 md:gap-6 xl:grid-cols-[2fr_1fr]">
 
                   {/* Main Chart */}
-                  <div className="rounded-2xl border border-white/5 bg-white/5 p-6 shadow-sm backdrop-blur-md">
-                    <div className="mb-8 text-sm font-bold text-white">{t('chartTitle')}</div>
+                  <div className="rounded-xl md:rounded-2xl border border-white/5 bg-white/5 p-4 md:p-6 shadow-sm backdrop-blur-md">
+                    <div className="mb-4 md:mb-8 text-xs md:text-sm font-bold text-white">{t('chartTitle')}</div>
 
                     {/* Fake Bar Chart */}
-                    <div className="mt-5 flex h-[220px] items-end gap-2.5">
+                    <div className="mt-4 flex h-[150px] md:h-[220px] items-end gap-1 md:gap-2.5">
                       {[...Array(24)].map((_, i) => {
                         // Deterministic pseudo-random height so SSR and Client match perfectly
                         const height = 30 + ((i * 37) % 70);
@@ -123,7 +123,7 @@ export default function Dashboard() {
                               "--bar-h": `${height}%`,
                               height: isVisible ? 0 : `${height}%` // Initialize at 0 if animating, or fallback to height
                             } as React.CSSProperties}
-                            className={`flex-1 rounded-t-sm w-full ${i === 23 ? 'bg-gradient-to-t from-brand-electric to-brand-cyan shadow-[0_0_15px_rgba(0,210,255,0.4)]' : 'bg-white/10 hover:bg-white/20 transition-colors'}`}
+                            className={`flex-1 rounded-t-[1px] md:rounded-t-sm w-full ${i === 23 ? 'bg-gradient-to-t from-brand-electric to-brand-cyan shadow-[0_0_15px_rgba(0,210,255,0.4)]' : 'bg-white/10 hover:bg-white/20 transition-colors'} ${i % 2 !== 0 ? 'hidden sm:block' : ''}`}
                           />
                         );
                       })}
@@ -131,10 +131,10 @@ export default function Dashboard() {
                   </div>
 
                   {/* List / Activity */}
-                  <div className="rounded-2xl border border-white/5 bg-white/5 p-6 shadow-sm backdrop-blur-md">
-                    <div className="mb-6 text-sm font-bold text-white">{t('activityTitle')}</div>
+                  <div className="rounded-xl md:rounded-2xl border border-white/5 bg-white/5 p-4 md:p-6 shadow-sm backdrop-blur-md">
+                    <div className="mb-4 md:mb-6 text-xs md:text-sm font-bold text-white">{t('activityTitle')}</div>
 
-                    <div className="flex flex-col gap-5">
+                    <div className="flex flex-col gap-4 md:gap-5">
                       {[
                         { text: t('act1'), time: t('act1Time'), color: "bg-green-400" },
                         { text: t('act2'), time: t('act2Time'), color: "bg-yellow-400" },
@@ -143,10 +143,10 @@ export default function Dashboard() {
                         { text: t('act5'), time: t('act5Time'), color: "bg-green-400" }
                       ].map((item, i) => (
                         <div key={i} className="flex items-start gap-3">
-                          <div className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${item.color} shadow-sm`} />
+                          <div className={`mt-1.5 h-1.5 w-1.5 md:h-2 md:w-2 shrink-0 rounded-full ${item.color} shadow-sm`} />
                           <div>
-                            <div className="mb-1 text-sm font-medium text-white/90">{item.text}</div>
-                            <div className="text-xs text-white/40">{item.time}</div>
+                            <div className="mb-0.5 text-xs md:text-sm font-medium text-white/90">{item.text}</div>
+                            <div className="text-[10px] md:text-xs text-white/40">{item.time}</div>
                           </div>
                         </div>
                       ))}

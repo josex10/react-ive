@@ -34,19 +34,19 @@ export default function Hero() {
           </div>
 
           {/* Headline */}
-          <h1 className="mb-6 text-5xl font-extrabold leading-tight tracking-tight text-white md:text-7xl">
+          <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-white md:text-7xl lg:text-8xl">
             {t('headline')}<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-electric to-purple-400">{t('headlineHighlight')}</span>
           </h1>
 
           {/* Subheadline */}
-          <p className="mb-10 max-w-2xl text-lg text-white/70 md:text-xl">
+          <p className="mb-10 max-w-2xl text-base text-white/70 md:text-xl">
             {t('subheadline')}
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-wrap justify-center gap-4">
-            <a href="https://calendly.com/" target="_blank" rel="noopener noreferrer" className="btn-primary">
+          <div className="flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto">
+            <a href="https://calendly.com/" target="_blank" rel="noopener noreferrer" className="btn-primary w-full sm:w-auto justify-center">
               {t('bookCall')}
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -54,7 +54,7 @@ export default function Hero() {
               </svg>
             </a>
 
-            <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="btn-secondary">
+            <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="btn-secondary w-full sm:w-auto justify-center">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347" />
               </svg>
@@ -64,81 +64,80 @@ export default function Hero() {
         </div>
 
         {/* Floating Cards Diagram - Chaos to Order */}
-        <div className="relative mx-auto mt-24 h-[320px] w-full max-w-4xl">
+        <div className="relative mx-auto mt-16 md:mt-24 h-[400px] md:h-[320px] w-full max-w-4xl scale-90 md:scale-100">
 
           {/* Messy Cards / Chaos */}
           <div
-            className="absolute left-12 top-4 z-20 w-48 -rotate-12 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-md shadow-2xl transition-all duration-1000"
+            className="absolute left-1 top-[90%] md:left-1 lg:left-12 md:top-4 lg:top-4 z-20 w-40 md:w-48 -rotate-12 rounded-xl border border-white/10 bg-white/5 p-3 md:p-4 backdrop-blur-md shadow-2xl transition-all duration-1000"
             style={{
               animation: "float-slow 6s ease-in-out infinite",
               opacity: mounted ? 1 : 0,
               transitionDelay: "300ms"
             }}
           >
-            <div className="mb-3 flex items-center gap-3">
-              <div className="flex h-6 w-6 items-center justify-center rounded bg-green-700 text-xs font-bold text-white">X</div>
-              <span className="text-xs font-medium text-white/90">{t('floatingChaos1')}</span>
+            <div className="mb-2 md:mb-3 flex items-center gap-3">
+              <div className="flex h-5 w-5 md:h-6 md:w-6 items-center justify-center rounded bg-green-700 text-[10px] md:text-xs font-bold text-white">X</div>
+              <span className="text-[10px] md:text-xs font-medium text-white/90">{t('floatingChaos1')}</span>
             </div>
-            <div className="mb-2 h-1.5 w-full rounded-full bg-white/20" />
-            <div className="mb-2 h-1.5 w-4/5 rounded-full bg-white/20" />
-            <div className="h-1.5 w-3/5 rounded-full bg-white/20" />
+            <div className="mb-2 h-1 w-full rounded-full bg-white/20" />
+            <div className="mb-2 h-1 w-4/5 rounded-full bg-white/20" />
+            <div className="h-1 w-3/5 rounded-full bg-white/20" />
           </div>
 
           <div
-            className="absolute left-[10%] top-40 z-10 w-44 rotate-6 rounded-xl border border-white/5 bg-white/5 p-4 backdrop-blur-sm shadow-xl transition-all duration-1000"
+            className="absolute left-[1%] top-[0%] md:left-[3%] lg:left-[10%] md:top-48 lg:top-40 z-10 w-36 md:w-44 rotate-6 rounded-xl border border-white/5 bg-white/5 p-3 md:p-4 backdrop-blur-sm shadow-xl transition-all duration-1000"
             style={{
               animation: "float-medium 5s ease-in-out infinite 1s",
               opacity: mounted ? 1 : 0,
               transitionDelay: "500ms"
             }}
           >
-            <div className="mb-2 text-xs font-bold text-yellow-400">⚠️ {t('floatingChaos2')}</div>
-            <div className="text-[10px] text-white/60">{t('floatingChaos3')}</div>
+            <div className="mb-1 text-[10px] md:text-xs font-bold text-yellow-400">⚠️ {t('floatingChaos2')}</div>
+            <div className="text-[9px] md:text-[10px] text-white/60">{t('floatingChaos3')}</div>
           </div>
 
           <div
-            className="absolute right-[5%] top-10 z-[25] w-48 rotate-12 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-md shadow-2xl transition-all duration-1000"
+            className="absolute right-0 top-[90%] md:right-[-2%] md:top-10 lg:right-[5%] lg:top-10 z-[50] w-40 md:w-48 rotate-12 rounded-xl border border-white/10 bg-white/5 p-3 md:p-4 backdrop-blur-md shadow-2xl transition-all duration-1000"
             style={{
               animation: "float-fast 4s ease-in-out infinite 0.5s",
               opacity: mounted ? 1 : 0,
               transitionDelay: "400ms"
             }}
           >
-            <div className="mb-3 flex items-center gap-2">
-              <div className="flex h-5 w-5 items-center justify-center rounded-full bg-green-500">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M12 0a12 12 0 1012 12A12.013 12.013 0 0012 0z" /></svg>
+            <div className="mb-2 md:mb-3 flex items-center gap-2">
+              <div className="flex h-4 w-4 md:h-5 md:w-5 items-center justify-center rounded-full bg-green-500">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M12 0a12 12 0 1012 12A12.013 12.013 0 0012 0z" /></svg>
               </div>
-              <span className="text-xs font-medium text-white/90">{t('floatingChaos4')}</span>
+              <span className="text-[10px] md:text-xs font-medium text-white/90">{t('floatingChaos4')}</span>
             </div>
-            <div className="mb-2 rounded-lg bg-white/10 p-2 text-[10px] text-white/70">{t('floatingChaos5')}</div>
-            <div className="rounded-lg bg-brand-cyan/20 p-2 text-right text-[10px] text-brand-cyan">{t('floatingChaos6')}</div>
+            <div className="mb-2 rounded-lg bg-white/10 p-1.5 md:p-2 text-[9px] md:text-[10px] text-white/70">{t('floatingChaos5')}</div>
+            <div className="rounded-lg bg-brand-cyan/20 p-1.5 md:p-2 text-right text-[9px] md:text-[10px] text-brand-cyan">{t('floatingChaos6')}</div>
           </div>
 
           <div
-            className="absolute right-[12%] top-50 z-0 w-40 -rotate-6 rounded-md bg-yellow-100 p-4 text-gray-800 shadow-xl transition-all duration-1000"
+            className="absolute top-[-10%] right-[0%] z-20 w-40 -rotate-6 rounded-md bg-yellow-100 p-4 text-gray-800 shadow-xl transition-all duration-1000 md:block md:top-48 md:right-10 lg:top-48 lg:right-26"
             style={{
               animation: "float-slow 7s ease-in-out infinite 2s",
               opacity: mounted ? 1 : 0,
               transitionDelay: "600ms"
             }}
           >
-            <div className="-rotate-2 font-['Comic_Sans_MS',cursive,sans-serif] text-xs font-bold">Call supplier tomorrow!</div>
-            <div className="mt-3 font-['Comic_Sans_MS',cursive,sans-serif] text-[10px] text-gray-500">- don't forget</div>
+            <div className="-rotate-2 font-['Comic_Sans_MS',cursive,sans-serif] text-xs font-bold">{t('floatingChaos7_1')}</div>
+            <div className="mt-3 font-['Comic_Sans_MS',cursive,sans-serif] text-[10px] text-gray-500">{t('floatingChaos7_2')}</div>
           </div>
 
           {/* Central System / Order (reactIVE) */}
           <div
-            className="absolute left-1/2 top-1/2 z-30 w-72 -translate-x-1/2 -translate-y-1/2 transition-all duration-1000"
+            className="absolute left-1/2 top-1/2 z-30 w-[280px] md:w-72 -translate-x-1/2 -translate-y-1/2 transition-all duration-1000"
             style={{
               opacity: mounted ? 1 : 0,
               transitionDelay: "1s"
             }}
           >
             {/* Glowing connecting lines */}
-            <svg className="absolute -inset-24 -z-10 h-[calc(100%+192px)] w-[calc(100%+192px)]">
-              {/* <path d="M600,450 Q100,100 150,150" fill="none" stroke="url(#blue-grad)" strokeWidth="2" strokeDasharray="4 4" style={{ animation: "dash 10s linear infinite" }} /> */}
-              <path d="M460,100 Q300,100 250,250" fill="none" stroke="url(#cyan-grad)" strokeWidth="2" strokeDasharray="4 4" style={{ animation: "dash 10s linear infinite reverse" }} />
-              <path d="M430,250 Q400,200 250,150" fill="none" stroke="url(#blue-grad)" strokeWidth="2" strokeDasharray="4 4" style={{ animation: "dash 10s linear infinite" }} />
+            <svg className="absolute -inset-12 md:-inset-24 -z-10 h-[calc(100%+96px)] md:h-[calc(100%+192px)] w-[calc(100%+96px)] md:w-[calc(100%+192px)]">
+              <path d="M460,100 Q300,100 250,250" fill="none" stroke="url(#cyan-grad)" strokeWidth="1.5" strokeDasharray="4 4" style={{ animation: "dash 10s linear infinite reverse" }} />
+              <path d="M430,250 Q400,200 250,150" fill="none" stroke="url(#blue-grad)" strokeWidth="1.5" strokeDasharray="4 4" style={{ animation: "dash 10s linear infinite" }} />
               <path d="M50,250 Q150,200 150,150" fill="none" stroke="url(#cyan-grad)" strokeWidth="2" strokeDasharray="4 4" style={{ animation: "dash 10s linear infinite reverse" }} />
               <path d="M10,100 Q350,200 150,150" fill="none" stroke="url(#cyan-grad)" strokeWidth="2" strokeDasharray="4 4" style={{ animation: "dash 10s linear infinite reverse" }} />
 
