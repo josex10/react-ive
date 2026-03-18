@@ -26,130 +26,65 @@ export default function Dashboard() {
   return (
     <section 
       ref={sectionRef}
-      className={`section reveal ${isVisible ? 'visible' : ''}`}
-      style={{
-        padding: "120px 0",
-        position: "relative",
-      }}
+      className={`relative z-20 py-32 transition-all duration-1000 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
     >
-      <div className="container" style={{ maxWidth: "1200px" }}>
+      <div className="container mx-auto max-w-6xl px-6">
         
-        <div style={{ textAlign: "center", marginBottom: "64px" }}>
-          <h2 
-            style={{
-              fontSize: "clamp(32px, 4vw, 42px)",
-              fontWeight: 800,
-              letterSpacing: "-0.02em",
-              marginBottom: "16px",
-              color: "#F4F7F6"
-            }}
-          >
-            See your business, <span style={{ color: "rgba(244, 247, 246, 0.5)" }}>clearly</span>
+        <div className="mb-20 text-center">
+          <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-white md:text-5xl">
+            See your business, <span className="text-white/40">clearly</span>
           </h2>
-          <p 
-            style={{
-              fontSize: "18px",
-              color: "rgba(244, 247, 246, 0.7)",
-              maxWidth: "600px",
-              margin: "0 auto",
-              lineHeight: 1.6
-            }}
-          >
+          <p className="mx-auto max-w-2xl text-lg text-white/70">
             Our custom dashboards give you real-time visibility into all your operations without touching a single spreadsheet.
           </p>
         </div>
 
         {/* Dashboard Mockup Container */}
         <div 
-          style={{
-            position: "relative",
-            width: "100%",
-            maxWidth: "1000px",
-            margin: "0 auto",
-            borderRadius: "24px",
-            padding: "8px",
-            background: "linear-gradient(135deg, rgba(0, 210, 255, 0.3) 0%, rgba(58, 123, 213, 0.1) 100%)",
-            boxShadow: "0 30px 60px rgba(0,0,0,0.5), 0 0 100px rgba(0, 210, 255, 0.15)",
-            transform: isVisible ? "translateY(0) scale(1)" : "translateY(40px) scale(0.95)",
-            transition: "all 1s cubic-bezier(0.16, 1, 0.3, 1)",
-          }}
+          className={`relative mx-auto w-full max-w-5xl rounded-[2.5rem] bg-gradient-to-br from-brand-cyan/30 via-white/5 to-brand-electric/20 p-2 shadow-2xl transition-all duration-1000 ease-out ${isVisible ? 'scale-100 translate-y-0' : 'scale-[0.98] translate-y-8'}`}
         >
           {/* Inner Dashboard UI */}
-          <div 
-            style={{
-              background: "#0A1128", /* Deep Blue Base */
-              borderRadius: "18px",
-              overflow: "hidden",
-              border: "1px solid rgba(255,255,255,0.05)",
-            }}
-          >
-            {/* Top Bar */ }
-            <div 
-              style={{
-                height: "64px",
-                borderBottom: "1px solid rgba(255,255,255,0.05)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                padding: "0 24px",
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-                <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "linear-gradient(135deg, #3A7BD5, #00D2FF)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                   <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M3 9L7.5 4.5L12 9L7.5 13.5L3 9Z" fill="white" /><path d="M8 9L12.5 4.5L15 7L10.5 11.5L8 9Z" fill="white" opacity="0.6" /></svg>
+          <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-brand-deep shadow-inner">
+            {/* Top Bar */}
+            <div className="flex h-16 items-center justify-between border-b border-white/5 px-6 lg:px-8">
+              <div className="flex items-center gap-4">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-brand-electric to-brand-cyan shadow">
+                   <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M3 9L7.5 4.5L12 9L7.5 13.5L3 9Z" fill="white" /><path d="M8 9L12.5 4.5L15 7L10.5 11.5L8 9Z" fill="white" className="opacity-60" /></svg>
                 </div>
-                <div style={{ display: "none" }} className="dashboard-text">
-                  <span style={{ fontWeight: 600, color: "#fff", fontSize: "14px" }}>Operations Center</span>
+                <div className="hidden sm:block">
+                  <span className="text-sm font-bold text-white">Operations Center</span>
                 </div>
               </div>
 
-              <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
-                <div style={{ padding: "6px 16px", borderRadius: "100px", background: "rgba(255,255,255,0.05)", fontSize: "12px", color: "rgba(255,255,255,0.6)" }}>
+              <div className="flex items-center gap-5">
+                <div className="hidden items-center gap-2 rounded-full bg-white/5 px-4 py-1.5 text-xs font-medium text-white/40 md:flex">
+                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                    Search everything... (⌘K)
                 </div>
-                <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: "rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: "12px", fontWeight: "bold" }}>JB</div>
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-tr from-品牌-cyan to-white/20 text-xs font-bold text-white shadow-inner">
+                  JB
+                </div>
               </div>
             </div>
 
-            <div style={{ display: "flex", minHeight: "500px" }}>
+            <div className="flex flex-col md:flex-row min-h-[600px]">
               {/* Sidebar */}
-              <div 
-                style={{
-                  width: "220px",
-                  borderRight: "1px solid rgba(255,255,255,0.05)",
-                  padding: "24px 16px",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "8px"
-                }}
-                className="dashboard-sidebar"
-              >
+              <div className="hidden w-60 flex-col gap-2 border-r border-white/5 bg-white/[0.02] px-4 py-6 md:flex">
                 {['Overview', 'Orders', 'Inventory', 'Customers', 'Analytics', 'Settings'].map((item, i) => (
                   <div 
                     key={item}
-                    style={{
-                      padding: "10px 16px",
-                      borderRadius: "8px",
-                      background: i === 0 ? "rgba(0, 210, 255, 0.1)" : "transparent",
-                      color: i === 0 ? "#00D2FF" : "rgba(255,255,255,0.5)",
-                      fontSize: "13px",
-                      fontWeight: i === 0 ? 600 : 500,
-                      cursor: "pointer",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "12px"
-                    }}
+                    className={`flex cursor-pointer items-center gap-3 rounded-xl px-4 py-3 text-sm transition-colors ${i === 0 ? 'bg-brand-cyan/10 font-bold text-brand-cyan' : 'font-medium text-white/50 hover:bg-white/5 hover:text-white/80'}`}
                   >
-                    <div style={{ width: "16px", height: "16px", borderRadius: "4px", background: i === 0 ? "#00D2FF" : "rgba(255,255,255,0.2)", opacity: i === 0 ? 1 : 0.5 }} />
+                    <div className={`h-1.5 w-1.5 rounded-full ${i === 0 ? 'bg-brand-cyan shadow-[0_0_8px_#00D2FF]' : 'bg-transparent'}`} />
                     {item}
                   </div>
                 ))}
               </div>
 
               {/* Main Content Area */}
-              <div style={{ flex: 1, padding: "32px", background: "rgba(0,0,0,0.2)" }}>
+              <div className="flex-1 bg-black/20 p-6 lg:p-10">
                 {/* Header Stats */}
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "16px", marginBottom: "32px" }} className="stats-grid">
+                <div className="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
                   {[
                     { label: "Total Revenue", value: "$124,500", trend: "+12.5%", positive: true },
                     { label: "Active Orders", value: "843", trend: "+5.2%", positive: true },
@@ -158,42 +93,34 @@ export default function Dashboard() {
                   ].map((stat, i) => (
                     <div 
                       key={i} 
-                      style={{ 
-                        background: "rgba(255,255,255,0.03)", 
-                        border: "1px solid rgba(255,255,255,0.05)", 
-                        borderRadius: "12px", 
-                        padding: "20px",
-                      }}
+                      className="rounded-2xl border border-white/5 bg-white/5 p-5 shadow-sm backdrop-blur-md"
                     >
-                      <div style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)", marginBottom: "8px" }}>{stat.label}</div>
-                      <div style={{ fontSize: "24px", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>{stat.value}</div>
-                      <div style={{ fontSize: "11px", color: stat.positive ? "#4ade80" : "#fbb117", fontWeight: 500 }}>{stat.trend}</div>
+                      <div className="mb-3 text-xs font-medium text-white/50">{stat.label}</div>
+                      <div className="mb-2 text-2xl font-extrabold text-white">{stat.value}</div>
+                      <div className={`text-xs font-bold ${stat.positive ? 'text-green-400' : 'text-yellow-400'}`}>{stat.trend}</div>
                     </div>
                   ))}
                 </div>
 
                 {/* Charts Area */}
-                <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: "24px" }} className="chart-grid">
+                <div className="grid grid-cols-1 gap-6 xl:grid-cols-[2fr_1fr]">
                   
                   {/* Main Chart */}
-                  <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "12px", padding: "24px" }}>
-                    <div style={{ fontSize: "14px", fontWeight: 600, color: "#fff", marginBottom: "24px" }}>Order Volume (30 Days)</div>
+                  <div className="rounded-2xl border border-white/5 bg-white/5 p-6 shadow-sm backdrop-blur-md">
+                    <div className="mb-8 text-sm font-bold text-white">Order Volume (30 Days)</div>
                     
                     {/* Fake Bar Chart */}
-                    <div style={{ display: "flex", alignItems: "flex-end", gap: "8px", height: "180px", marginTop: "20px" }}>
-                      {[...Array(20)].map((_, i) => {
-                        const height = Math.floor(Math.random() * 80) + 20;
+                    <div className="mt-5 flex h-[220px] items-end gap-2.5">
+                      {[...Array(24)].map((_, i) => {
+                        const height = Math.floor(Math.random() * 70) + 30;
                         return (
                           <div 
                             key={i} 
                             style={{
-                              flex: 1,
-                              background: i === 19 ? "linear-gradient(to top, #3A7BD5, #00D2FF)" : "rgba(255,255,255,0.1)",
-                              borderRadius: "4px 4px 0 0",
-                              height: "0%",
-                              animation: `bar-grow 1s ease forwards ${i * 0.05}s`
+                              animation: `bar-grow 1s ease forwards ${i * 0.04}s`,
+                              height: `${height}%` // Using inline style ONLY for dynamic height mapping
                             }}
-                            className={`bar-${i}`}
+                            className={`flex-1 rounded-t-sm w-full ${i === 23 ? 'bg-gradient-to-t from-brand-electric to-brand-cyan shadow-[0_0_15px_rgba(0,210,255,0.4)]' : 'bg-white/10 hover:bg-white/20 transition-colors'}`}
                           />
                         );
                       })}
@@ -201,22 +128,22 @@ export default function Dashboard() {
                   </div>
 
                   {/* List / Activity */}
-                  <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "12px", padding: "24px" }}>
-                    <div style={{ fontSize: "14px", fontWeight: 600, color: "#fff", marginBottom: "24px" }}>Recent Activity</div>
+                  <div className="rounded-2xl border border-white/5 bg-white/5 p-6 shadow-sm backdrop-blur-md">
+                    <div className="mb-6 text-sm font-bold text-white">Recent Activity</div>
                     
-                    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                    <div className="flex flex-col gap-5">
                       {[
-                        { text: "Order #4092 processed", time: "2 min ago", color: "#4ade80" },
-                        { text: "Inventory alert: SKU-192", time: "15 min ago", color: "#fbb117" },
-                        { text: "New client registered", time: "1 hr ago", color: "#00D2FF" },
-                        { text: "Daily report generated", time: "3 hrs ago", color: "rgba(255,255,255,0.5)" },
-                        { text: "API Sync completed", time: "4 hrs ago", color: "#4ade80" }
+                        { text: "Order #4092 processed", time: "2 min ago", color: "bg-green-400" },
+                        { text: "Inventory alert: SKU-192", time: "15 min ago", color: "bg-yellow-400" },
+                        { text: "New client registered", time: "1 hr ago", color: "bg-brand-cyan" },
+                        { text: "Daily report generated", time: "3 hrs ago", color: "bg-white/40" },
+                        { text: "API Sync completed", time: "4 hrs ago", color: "bg-green-400" }
                       ].map((item, i) => (
-                        <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
-                          <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: item.color, marginTop: "4px" }} />
+                        <div key={i} className="flex items-start gap-3">
+                          <div className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${item.color} shadow-sm`} />
                           <div>
-                            <div style={{ fontSize: "13px", color: "rgba(255,255,255,0.9)", marginBottom: "4px" }}>{item.text}</div>
-                            <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)" }}>{item.time}</div>
+                            <div className="mb-1 text-sm font-medium text-white/90">{item.text}</div>
+                            <div className="text-xs text-white/40">{item.time}</div>
                           </div>
                         </div>
                       ))}
@@ -229,18 +156,6 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-
-      <style>{`
-        ${[...Array(20)].map((_, i) => `.bar-${i} { --bar-h: ${Math.floor(Math.random() * 80) + 20}%; }`).join('\n')}
-        
-        @media (max-width: 900px) {
-          .chart-grid { grid-template-columns: 1fr !important; }
-          .dashboard-sidebar { display: none !important; }
-        }
-        @media (max-width: 600px) {
-          .stats-grid { grid-template-columns: 1fr 1fr !important; }
-        }
-      `}</style>
     </section>
   );
 }

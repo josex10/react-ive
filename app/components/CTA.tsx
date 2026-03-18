@@ -26,95 +26,35 @@ export default function CTA() {
   return (
     <section 
       ref={sectionRef}
-      className={`section reveal ${isVisible ? 'visible' : ''}`}
-      style={{
-        padding: "160px 0",
-        position: "relative",
-      }}
+      className={`relative z-20 py-40 transition-all duration-1000 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
     >
-      <div className="container" style={{ maxWidth: "1000px" }}>
-        <div 
-          className="glass-card"
-          style={{
-            position: "relative",
-            padding: "80px 40px",
-            textAlign: "center",
-            background: "linear-gradient(135deg, rgba(10, 17, 40, 0.9) 0%, rgba(17, 32, 85, 0.9) 100%)",
-            border: "1px solid rgba(0, 210, 255, 0.2)",
-            boxShadow: "0 40px 80px rgba(0,0,0,0.6), inset 0 0 100px rgba(0, 210, 255, 0.05)",
-            overflow: "hidden"
-          }}
-        >
-          {/* Decorative Glow elements */}
-          <div 
-            style={{
-              position: "absolute",
-              top: "-50%",
-              left: "-10%",
-              width: "50%",
-              height: "100%",
-              background: "radial-gradient(circle, rgba(58, 123, 213, 0.3) 0%, transparent 70%)",
-              filter: "blur(60px)",
-              zIndex: 0,
-            }}
-          />
-          <div 
-            style={{
-              position: "absolute",
-              bottom: "-50%",
-              right: "-10%",
-              width: "50%",
-              height: "100%",
-              background: "radial-gradient(circle, rgba(0, 210, 255, 0.2) 0%, transparent 70%)",
-              filter: "blur(60px)",
-              zIndex: 0,
-            }}
-          />
+      <div className="container mx-auto max-w-5xl px-6">
+        <div className="relative overflow-hidden rounded-[2.5rem] border border-brand-cyan/20 bg-gradient-to-br from-brand-deep/90 to-brand-navymid/90 px-10 py-24 text-center shadow-2xl backdrop-blur-3xl md:px-20">
           
-          <div style={{ position: "relative", zIndex: 10 }}>
-            <h2 
-              style={{
-                fontSize: "clamp(36px, 5vw, 56px)",
-                fontWeight: 800,
-                letterSpacing: "-0.03em",
-                marginBottom: "24px",
-                color: "#F4F7F6",
-                lineHeight: 1.1
-              }}
-            >
-              Stop wasting time with <br />
-              <span className="glow-text">manual processes</span>
+          {/* Decorative Glow elements */}
+          <div className="absolute -left-1/4 -top-1/2 -z-10 h-[500px] w-[500px] rounded-full bg-brand-electric/30 blur-[100px]" />
+          <div className="absolute -bottom-1/2 -right-1/4 -z-10 h-[500px] w-[500px] rounded-full bg-brand-cyan/20 blur-[100px]" />
+          
+          <div className="relative z-10">
+            <h2 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-white md:text-6xl">
+              Stop wasting time with <br className="hidden md:block"/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-electric to-brand-cyan">manual processes</span>
             </h2>
             
-            <p 
-              style={{
-                fontSize: "18px",
-                color: "rgba(244, 247, 246, 0.8)",
-                maxWidth: "600px",
-                margin: "0 auto 48px",
-                lineHeight: 1.6
-              }}
-            >
+            <p className="mx-auto mb-12 max-w-2xl text-lg leading-relaxed text-white/80 md:text-xl">
               Transform your business operations in weeks, not months. Join the companies that have already scaled with reactIVE.
             </p>
             
-            <div 
-              style={{
-                display: "flex",
-                gap: "16px",
-                justifyContent: "center",
-                flexWrap: "wrap"
-              }}
-            >
-              <a href="https://calendly.com/" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ padding: "18px 40px", fontSize: "16px" }}>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a href="https://calendly.com/" target="_blank" rel="noopener noreferrer" className="btn-primary">
                 Schedule your free consultation
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
               </a>
             </div>
 
-            <p style={{ marginTop: "24px", fontSize: "14px", color: "rgba(244, 247, 246, 0.5)" }}>
+            <p className="mt-8 text-sm font-medium text-white/50">
               No pressure. Just a conversation about your business bottlenecks.
             </p>
           </div>

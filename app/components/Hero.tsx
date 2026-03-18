@@ -9,114 +9,41 @@ export default function Hero() {
   }, []);
 
   return (
-    <section 
-      className="section"
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        paddingTop: "100px",
-        paddingBottom: "80px",
-        position: "relative",
-        overflow: "hidden"
-      }}
-    >
+    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden pb-20 pt-32 z-10">
       {/* Background Glows */}
       <div 
-        style={{
-          position: "absolute",
-          top: "20%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "60vw",
-          height: "60vw",
-          maxWidth: "800px",
-          maxHeight: "800px",
-          background: "radial-gradient(circle, rgba(0, 210, 255, 0.15) 0%, transparent 70%)",
-          filter: "blur(60px)",
-          zIndex: -1,
-          opacity: mounted ? 1 : 0,
-          transition: "opacity 1.5s ease"
-        }}
+        className="absolute left-1/2 top-1/4 -z-10 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-cyan/20 blur-[80px] transition-opacity duration-1000"
+        style={{ opacity: mounted ? 1 : 0 }}
       />
       
-      <div className="container" style={{ position: "relative", zIndex: 10 }}>
+      <div className="container relative mx-auto w-full max-w-6xl px-6 z-20">
         <div 
+          className="mx-auto flex max-w-3xl flex-col items-center text-center transition-all duration-1000"
           style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            textAlign: "center",
-            maxWidth: "800px",
-            margin: "0 auto",
             opacity: mounted ? 1 : 0,
             transform: mounted ? "translateY(0)" : "translateY(30px)",
-            transition: "opacity 1s ease, transform 1s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
         >
           {/* Eyebrow */}
-          <div 
-            style={{
-              padding: "6px 16px",
-              borderRadius: "100px",
-              background: "rgba(0, 210, 255, 0.1)",
-              border: "1px solid rgba(0, 210, 255, 0.2)",
-              color: "#00D2FF",
-              fontSize: "13px",
-              fontWeight: 600,
-              letterSpacing: "0.05em",
-              textTransform: "uppercase",
-              marginBottom: "32px",
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              boxShadow: "0 0 20px rgba(0, 210, 255, 0.15)",
-            }}
-          >
-            <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#00D2FF", display: "inline-block", boxShadow: "0 0 10px #00D2FF" }}></span>
+          <div className="mb-8 flex items-center gap-2 rounded-full border border-brand-cyan/30 bg-brand-cyan/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-cyan shadow-lg shadow-brand-cyan/20">
+            <span className="inline-block h-2 w-2 rounded-full bg-brand-cyan shadow-[0_0_10px_#00D2FF]"></span>
             Make your business work smarter
           </div>
           
           {/* Headline */}
-          <h1 
-            style={{
-              fontSize: "clamp(46px, 6vw, 76px)",
-              fontWeight: 800,
-              lineHeight: 1.1,
-              letterSpacing: "-0.03em",
-              marginBottom: "24px",
-              color: "#F4F7F6"
-            }}
-          >
+          <h1 className="mb-6 text-5xl font-extrabold leading-tight tracking-tight text-white md:text-7xl">
             Automate your<br/>
-            <span className="glow-text">business processes</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-electric to-purple-400">business processes</span>
           </h1>
           
           {/* Subheadline */}
-          <p 
-            style={{
-              fontSize: "clamp(18px, 2vw, 22px)",
-              lineHeight: 1.6,
-              color: "rgba(244, 247, 246, 0.7)",
-              marginBottom: "48px",
-              maxWidth: "600px",
-              fontWeight: 400
-            }}
-          >
+          <p className="mb-10 max-w-2xl text-lg text-white/70 md:text-xl">
             We replace Excel and manual workflows with custom software solutions designed for scale.
           </p>
           
           {/* CTAs */}
-          <div 
-            style={{
-              display: "flex",
-              gap: "16px",
-              flexWrap: "wrap",
-              justifyContent: "center",
-            }}
-          >
-            <a href="https://calendly.com/" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ padding: "16px 36px", fontSize: "16px" }}>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a href="https://calendly.com/" target="_blank" rel="noopener noreferrer" className="btn-primary">
               Book a free call
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -124,9 +51,9 @@ export default function Hero() {
               </svg>
             </a>
             
-            <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="btn-secondary" style={{ padding: "16px 36px", fontSize: "16px" }}>
+            <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="btn-secondary">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347" />
               </svg>
               Chat on WhatsApp
             </a>
@@ -134,115 +61,78 @@ export default function Hero() {
         </div>
 
         {/* Floating Cards Diagram - Chaos to Order */}
-        <div style={{ position: "relative", height: "300px", marginTop: "80px", width: "100%", maxWidth: "900px", margin: "80px auto 0" }}>
+        <div className="relative mx-auto mt-24 h-[320px] w-full max-w-4xl">
           
           {/* Messy Cards / Chaos */}
           <div 
-            className="glass-card"
+            className="absolute left-0 top-4 z-20 w-48 -rotate-12 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-md shadow-2xl transition-all duration-1000"
             style={{
-              position: "absolute",
-              padding: "16px",
-              width: "180px",
-              top: "20px",
-              left: "5%",
               animation: "float-slow 6s ease-in-out infinite",
-              transform: "rotate(-12deg)",
               opacity: mounted ? 1 : 0,
-              transition: "opacity 1s ease 0.3s",
-              boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
-              zIndex: 3
+              transitionDelay: "300ms"
             }}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" }}>
-              <div style={{ width: "24px", height: "24px", background: "#107c41", borderRadius: "4px", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontSize: "12px", fontWeight: "bold" }}>X</div>
-              <span style={{ fontSize: "12px", fontWeight: 600, color: "rgba(255,255,255,0.9)" }}>inventory.xlsx</span>
+            <div className="mb-3 flex items-center gap-3">
+              <div className="flex h-6 w-6 items-center justify-center rounded bg-green-700 text-xs font-bold text-white">X</div>
+              <span className="text-xs font-medium text-white/90">inventory.xlsx</span>
             </div>
-            <div style={{ height: "4px", width: "100%", background: "rgba(255,255,255,0.1)", borderRadius: "2px", marginBottom: "6px" }} />
-            <div style={{ height: "4px", width: "80%", background: "rgba(255,255,255,0.1)", borderRadius: "2px", marginBottom: "6px" }} />
-            <div style={{ height: "4px", width: "60%", background: "rgba(255,255,255,0.1)", borderRadius: "2px" }} />
+            <div className="mb-2 h-1.5 w-full rounded-full bg-white/20" />
+            <div className="mb-2 h-1.5 w-4/5 rounded-full bg-white/20" />
+            <div className="h-1.5 w-3/5 rounded-full bg-white/20" />
           </div>
 
           <div 
-            className="glass-card"
+            className="absolute left-[20%] top-32 z-10 w-44 rotate-6 rounded-xl border border-white/5 bg-white/5 p-4 backdrop-blur-sm shadow-xl transition-all duration-1000"
             style={{
-              position: "absolute",
-              padding: "16px",
-              width: "160px",
-              top: "140px",
-              left: "15%",
               animation: "float-medium 5s ease-in-out infinite 1s",
-              transform: "rotate(8deg)",
               opacity: mounted ? 1 : 0,
-              transition: "opacity 1s ease 0.5s",
-              background: "rgba(255,255,255,0.06)",
-              zIndex: 2
+              transitionDelay: "500ms"
             }}
           >
-            <div style={{ fontSize: "12px", fontWeight: 600, color: "#fbb117", marginBottom: "8px" }}>⚠️ Manual orders</div>
-            <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.5)" }}>Order #4092 - Pending...</div>
+            <div className="mb-2 text-xs font-bold text-yellow-400">⚠️ Manual orders</div>
+            <div className="text-[10px] text-white/60">Order #4092 - Pending...</div>
           </div>
 
           <div 
-            className="glass-card"
+            className="absolute right-[5%] top-10 z-[25] w-48 rotate-12 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-md shadow-2xl transition-all duration-1000"
             style={{
-              position: "absolute",
-              padding: "16px",
-              width: "170px",
-              top: "40px",
-              right: "4%",
               animation: "float-fast 4s ease-in-out infinite 0.5s",
-              transform: "rotate(15deg)",
               opacity: mounted ? 1 : 0,
-              transition: "opacity 1s ease 0.4s",
-              zIndex: 3
+              transitionDelay: "400ms"
             }}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
-              <div style={{ width: "20px", height: "20px", background: "#25D366", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div className="mb-3 flex items-center gap-2">
+              <div className="flex h-5 w-5 items-center justify-center rounded-full bg-green-500">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M12 0a12 12 0 1012 12A12.013 12.013 0 0012 0z"/></svg>
               </div>
-              <span style={{ fontSize: "11px", fontWeight: 600, color: "rgba(255,255,255,0.9)" }}>Client Messages</span>
+              <span className="text-xs font-medium text-white/90">Client Messages</span>
             </div>
-            <div style={{ padding: "6px", background: "rgba(255,255,255,0.05)", borderRadius: "6px", fontSize: "9px", color: "rgba(255,255,255,0.6)", marginBottom: "4px" }}>Where is my order?</div>
-            <div style={{ padding: "6px", background: "rgba(0, 210, 255, 0.1)", borderRadius: "6px", fontSize: "9px", color: "rgba(0, 210, 255, 0.9)", textAlign: "right" }}>Let me check...</div>
+            <div className="mb-2 rounded-lg bg-white/10 p-2 text-[10px] text-white/70">Where is my order?</div>
+            <div className="rounded-lg bg-brand-cyan/20 p-2 text-right text-[10px] text-brand-cyan">Let me check...</div>
           </div>
 
           <div 
-            className="glass-card"
+            className="absolute right-[22%] top-40 z-0 w-40 -rotate-6 rounded-md bg-yellow-100 p-4 text-gray-800 shadow-xl transition-all duration-1000"
             style={{
-              position: "absolute",
-              padding: "16px",
-              width: "150px",
-              top: "160px",
-              right: "18%",
               animation: "float-slow 7s ease-in-out infinite 2s",
-              transform: "rotate(-8deg)",
               opacity: mounted ? 1 : 0,
-              transition: "opacity 1s ease 0.6s",
-              background: "#FFF9C4", /* Post-it note look */
-              color: "#333",
-              zIndex: 1
+              transitionDelay: "600ms"
             }}
           >
-            <div style={{ fontSize: "12px", fontFamily: "'Comic Sans MS', cursive, sans-serif", fontWeight: 600, transform: "rotate(-2deg)" }}>Call supplier tomorrow!</div>
-            <div style={{ fontSize: "10px", marginTop: "8px", color: "rgba(0,0,0,0.5)", fontFamily: "'Comic Sans MS', cursive, sans-serif" }}>- don't forget</div>
+            <div className="-rotate-2 font-['Comic_Sans_MS',cursive,sans-serif] text-xs font-bold">Call supplier tomorrow!</div>
+            <div className="mt-3 font-['Comic_Sans_MS',cursive,sans-serif] text-[10px] text-gray-500">- don't forget</div>
           </div>
 
           {/* Central System / Order (reactIVE) */}
           <div 
+            className="absolute left-1/2 top-1/2 z-30 w-72 -translate-x-1/2 -translate-y-1/2 transition-all duration-1000"
             style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              width: "280px",
-              zIndex: 10,
               opacity: mounted ? 1 : 0,
-              transition: "opacity 1s ease 1s",
+              transitionDelay: "1s"
             }}
           >
             {/* Glowing connecting lines */}
-            <svg style={{ position: "absolute", inset: "-100px", zIndex: -1, width: "calc(100% + 200px)", height: "calc(100% + 200px)" }}>
+            <svg className="absolute -inset-24 -z-10 h-[calc(100%+192px)] w-[calc(100%+192px)]">
               <path d="M50,150 Q100,100 150,150" fill="none" stroke="url(#blue-grad)" strokeWidth="2" strokeDasharray="4 4" style={{ animation: "dash 10s linear infinite" }}/>
               <path d="M400,50 Q300,100 250,150" fill="none" stroke="url(#cyan-grad)" strokeWidth="2" strokeDasharray="4 4" style={{ animation: "dash 10s linear infinite reverse" }}/>
               <path d="M400,250 Q300,200 250,150" fill="none" stroke="url(#blue-grad)" strokeWidth="2" strokeDasharray="4 4" style={{ animation: "dash 10s linear infinite" }}/>
@@ -260,43 +150,37 @@ export default function Hero() {
               </defs>
             </svg>
 
-            <div 
-              className="glass-card"
-              style={{
-                background: "rgba(10, 17, 40, 0.8)",
-                border: "1px solid rgba(0, 210, 255, 0.3)",
-                padding: "24px",
-                position: "relative",
-                boxShadow: "0 0 40px rgba(0, 210, 255, 0.2)",
-              }}
-            >
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <div style={{ width: "24px", height: "24px", borderRadius: "6px", background: "linear-gradient(135deg, #3A7BD5, #00D2FF)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M3 9L7.5 4.5L12 9L7.5 13.5L3 9Z" fill="white" /><path d="M8 9L12.5 4.5L15 7L10.5 11.5L8 9Z" fill="white" opacity="0.6" /></svg>
+            <div className="relative rounded-2xl border border-brand-cyan/40 bg-brand-deep/90 p-6 shadow-[0_0_50px_rgba(0,210,255,0.3)] backdrop-blur-xl">
+              <div className="mb-5 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-brand-electric to-brand-cyan shadow-lg">
+                    <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M3 9L7.5 4.5L12 9L7.5 13.5L3 9Z" fill="white" /><path d="M8 9L12.5 4.5L15 7L10.5 11.5L8 9Z" fill="white" className="opacity-60" /></svg>
                   </div>
-                  <span style={{ fontWeight: 700, fontSize: "14px", color: "white" }}>reactIVE System</span>
+                  <span className="text-sm font-bold text-white">reactIVE System</span>
                 </div>
-                <div style={{ padding: "4px 8px", background: "rgba(0, 210, 255, 0.1)", borderRadius: "100px", fontSize: "10px", color: "#00D2FF", fontWeight: 600 }}>SYNCED</div>
+                <div className="rounded-full bg-brand-cyan/20 px-2.5 py-1 text-[10px] font-bold text-brand-cyan tracking-wider">SYNCED</div>
               </div>
               
-              <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "8px 12px", background: "rgba(255,255,255,0.03)", borderRadius: "8px" }}>
-                  <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.7)" }}>Inventory DB</span>
-                  <span style={{ fontSize: "12px", color: "#4ade80", fontWeight: 500 }}>Updated</span>
+              <div className="flex flex-col gap-3">
+                <div className="flex items-center justify-between rounded-xl bg-white/10 px-4 py-2.5">
+                  <span className="text-xs font-medium text-white/80">Inventory DB</span>
+                  <span className="text-xs font-bold text-green-400">Updated</span>
                 </div>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "8px 12px", background: "rgba(255,255,255,0.03)", borderRadius: "8px" }}>
-                  <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.7)" }}>Orders API</span>
-                  <span style={{ fontSize: "12px", color: "#4ade80", fontWeight: 500 }}>Processing</span>
+                <div className="flex items-center justify-between rounded-xl bg-white/10 px-4 py-2.5">
+                  <span className="text-xs font-medium text-white/80">Orders API</span>
+                  <span className="text-xs font-bold text-green-400">Processing</span>
                 </div>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "8px 12px", background: "rgba(255,255,255,0.03)", borderRadius: "8px" }}>
-                  <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.7)" }}>Client Comms</span>
-                  <span style={{ fontSize: "12px", color: "#4ade80", fontWeight: 500 }}>Automated</span>
+                <div className="flex items-center justify-between rounded-xl bg-white/10 px-4 py-2.5">
+                  <span className="text-xs font-medium text-white/80">Client Comms</span>
+                  <span className="text-xs font-bold text-green-400">Automated</span>
                 </div>
               </div>
 
-              <div style={{ marginTop: "16px", height: "4px", width: "100%", background: "rgba(255,255,255,0.1)", borderRadius: "2px", overflow: "hidden" }}>
-                <div style={{ height: "100%", width: "100%", background: "linear-gradient(90deg, #3A7BD5, #00D2FF)", animation: "border-flow 3s linear infinite", backgroundSize: "200% 100%" }} />
+              <div className="mt-5 h-1.5 w-full overflow-hidden rounded-full bg-white/10">
+                <div 
+                  className="h-full w-full bg-gradient-to-r from-brand-electric via-brand-cyan to-brand-electric"
+                  style={{ animation: "border-flow 3s linear infinite", backgroundSize: "200% 100%" }} 
+                />
               </div>
             </div>
           </div>

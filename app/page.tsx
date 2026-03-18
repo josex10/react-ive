@@ -11,13 +11,7 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
-      <div 
-        style={{
-          position: "relative",
-          zIndex: 1,
-          background: "linear-gradient(to bottom, #0A1128 0%, #0D1B3E 50%, #0A1128 100%)",
-        }}
-      >
+      <div className="relative z-[1] bg-gradient-to-b from-[#0A1128] via-[#0D1B3E] to-[#0A1128]">
         <Problem />
         <Solution />
         <Dashboard />

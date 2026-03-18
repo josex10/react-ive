@@ -25,28 +25,50 @@ export default function Problem() {
 
   const problems = [
     {
-      icon: "❌",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-red-400">
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+          <line x1="12" y1="9" x2="12" y2="13"></line>
+          <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+      ),
       title: "Manual Errors",
       description: "Copy-pasting data across systems leads to expensive mistakes and lost revenue.",
-      delay: "0s"
+      delay: "delay-0"
     },
     {
-      icon: "🔄",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-400">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+      ),
       title: "Duplicated Data",
       description: "Entering the same information in Excel, CRM, and accounting software wastes hours.",
-      delay: "0.1s"
+      delay: "delay-100"
     },
     {
-      icon: "🐢",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-orange-400">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+      ),
       title: "Slow Processes",
       description: "Bottlenecks in approval workflows and manual report generation slow down growth.",
-      delay: "0.2s"
+      delay: "delay-200"
     },
     {
-      icon: "🙈",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-brand-cyan">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+          <circle cx="12" cy="12" r="3"></circle>
+          <line x1="1" y1="1" x2="23" y2="23"></line>
+        </svg>
+      ),
       title: "Lack of Visibility",
       description: "Unable to see real-time metrics because data is scattered across multiple spreadsheets.",
-      delay: "0.3s"
+      delay: "delay-300"
     }
   ];
 
@@ -54,81 +76,32 @@ export default function Problem() {
     <section 
       id="problem"
       ref={sectionRef}
-      className={`section reveal ${isVisible ? 'visible' : ''}`}
-      style={{
-        padding: "120px 0",
-        position: "relative",
-      }}
+      className={`relative py-32 transition-all duration-1000 ease-out z-10 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
     >
-      <div className="container" style={{ maxWidth: "1000px" }}>
+      <div className="container mx-auto max-w-5xl px-6">
         
-        <div style={{ textAlign: "center", marginBottom: "64px" }}>
-          <h2 
-            style={{
-              fontSize: "clamp(32px, 4vw, 48px)",
-              fontWeight: 800,
-              letterSpacing: "-0.02em",
-              marginBottom: "16px",
-              color: "#F4F7F6"
-            }}
-          >
-            The hidden cost of <span style={{ color: "rgba(244, 247, 246, 0.5)" }}>manual work</span>
+        <div className="mb-20 text-center">
+          <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-white md:text-5xl">
+            The hidden cost of <span className="text-white/40">manual work</span>
           </h2>
-          <p 
-            style={{
-              fontSize: "18px",
-              color: "rgba(244, 247, 246, 0.7)",
-              maxWidth: "600px",
-              margin: "0 auto",
-              lineHeight: 1.6
-            }}
-          >
+          <p className="mx-auto max-w-2xl text-lg text-white/70">
             Every hour your team spends moving data manually is an hour they aren't growing your business.
           </p>
         </div>
 
-        <div 
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-            gap: "24px",
-          }}
-        >
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {problems.map((problem, index) => (
             <div 
               key={index}
-              className="glass-card"
-              style={{
-                padding: "32px",
-                display: "flex",
-                flexDirection: "column",
-                gap: "16px",
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? "translateY(0)" : "translateY(30px)",
-                transition: `all 0.6s ease ${problem.delay}`,
-                background: "rgba(255, 255, 255, 0.02)",
-                border: "1px solid rgba(255, 255, 255, 0.05)",
-              }}
+              className={`flex flex-col gap-5 rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl transition-all duration-700 hover:border-brand-cyan/30 hover:bg-white/10 hover:-translate-y-1 ${problem.delay} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
             >
-              <div 
-                style={{
-                  width: "48px",
-                  height: "48px",
-                  borderRadius: "12px",
-                  background: "rgba(255,255,255,0.05)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "24px",
-                  marginBottom: "8px"
-                }}
-              >
+              <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-xl bg-white/10 shadow-inner">
                 {problem.icon}
               </div>
-              <h3 style={{ fontSize: "20px", fontWeight: 600, color: "#F4F7F6" }}>
+              <h3 className="text-xl font-bold text-white">
                 {problem.title}
               </h3>
-              <p style={{ fontSize: "15px", color: "rgba(244, 247, 246, 0.6)", lineHeight: 1.6 }}>
+              <p className="text-sm leading-relaxed text-white/60">
                 {problem.description}
               </p>
             </div>

@@ -18,13 +18,14 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-brand-cyan: var(--cyan);
+  --color-brand-electric: var(--electric-blue);
+  --color-brand-deep: var(--deep-blue);
+  --color-brand-cloud: var(--cloud-white);
+  --color-brand-navymid: var(--navy-mid);
+  --font-inter: var(--font-inter);
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
 html {
   scroll-behavior: smooth;

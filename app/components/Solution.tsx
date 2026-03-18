@@ -71,103 +71,37 @@ export default function Solution() {
     <section 
       id="solutions"
       ref={sectionRef}
-      className={`section reveal ${isVisible ? 'visible' : ''}`}
-      style={{
-        padding: "120px 0",
-        position: "relative",
-      }}
+      className={`relative z-20 py-32 transition-all duration-1000 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
     >
       {/* Background element */}
-      <div 
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "0%",
-          width: "40vw",
-          height: "40vw",
-          background: "radial-gradient(circle, rgba(58, 123, 213, 0.1) 0%, transparent 60%)",
-          filter: "blur(60px)",
-          zIndex: -1,
-          transform: "translateY(-50%)"
-        }}
-      />
+      <div className="absolute left-0 top-1/2 -z-10 h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-brand-electric/10 blur-[100px]" />
 
-      <div className="container" style={{ maxWidth: "1200px" }}>
+      <div className="container mx-auto max-w-6xl px-6">
         
-        <div 
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1.2fr",
-            gap: "80px",
-            alignItems: "center"
-          }}
-          className="solution-grid"
-        >
+        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-24">
           {/* Left Side - Text */}
-          <div>
-            <div 
-              style={{
-                padding: "6px 16px",
-                borderRadius: "100px",
-                background: "rgba(58, 123, 213, 0.1)",
-                border: "1px solid rgba(58, 123, 213, 0.2)",
-                color: "#3A7BD5",
-                fontSize: "13px",
-                fontWeight: 600,
-                letterSpacing: "0.05em",
-                textTransform: "uppercase",
-                marginBottom: "24px",
-                display: "inline-flex",
-                alignItems: "center"
-              }}
-            >
+          <div className="flex flex-col">
+            <div className="mb-6 self-start rounded-full border border-brand-electric/30 bg-brand-electric/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-electric">
               How we do it
             </div>
             
-            <h2 
-              style={{
-                fontSize: "clamp(32px, 4vw, 48px)",
-                fontWeight: 800,
-                letterSpacing: "-0.02em",
-                marginBottom: "24px",
-                color: "#F4F7F6",
-                lineHeight: 1.1
-              }}
-            >
-              Everything you need to <span className="glow-text">scale flawlessly</span>
+            <h2 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-white md:text-5xl">
+              Everything you need to <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-electric to-brand-cyan">scale flawlessly</span>
             </h2>
             
-            <p 
-              style={{
-                fontSize: "18px",
-                color: "rgba(244, 247, 246, 0.7)",
-                marginBottom: "40px",
-                lineHeight: 1.6
-              }}
-            >
+            <p className="mb-12 text-lg leading-relaxed text-white/70">
               We don't just build software. We engineer automated workflows that eliminate human error and dramatically reduce operating costs.
             </p>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+            <div className="flex flex-col gap-8">
               {solutions.map((item, i) => (
-                <div key={i} style={{ display: "flex", gap: "16px" }}>
-                  <div style={{ 
-                    width: "48px", 
-                    height: "48px", 
-                    borderRadius: "12px", 
-                    background: "rgba(58, 123, 213, 0.1)", 
-                    border: "1px solid rgba(58, 123, 213, 0.2)",
-                    display: "flex", 
-                    alignItems: "center", 
-                    justifyContent: "center",
-                    color: "#00D2FF",
-                    flexShrink: 0
-                  }}>
+                <div key={i} className="flex gap-5">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-brand-electric/20 bg-brand-electric/10 text-brand-cyan shadow-inner">
                     {item.icon}
                   </div>
                   <div>
-                    <h4 style={{ fontSize: "18px", fontWeight: 600, color: "#F4F7F6", marginBottom: "8px" }}>{item.title}</h4>
-                    <p style={{ fontSize: "15px", color: "rgba(244, 247, 246, 0.6)", lineHeight: 1.5 }}>{item.description}</p>
+                    <h4 className="mb-2 text-xl font-bold text-white">{item.title}</h4>
+                    <p className="text-sm leading-relaxed text-white/60">{item.description}</p>
                   </div>
                 </div>
               ))}
@@ -175,82 +109,51 @@ export default function Solution() {
           </div>
 
           {/* Right Side - Visuals */}
-          <div style={{ position: "relative" }}>
-            <div 
-              className="glass-card"
-              style={{
-                position: "relative",
-                padding: "24px",
-                background: "linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%)",
-                boxShadow: "0 20px 40px rgba(0,0,0,0.4)",
-                overflow: "hidden"
-              }}
-            >
+          <div className="relative mt-10 lg:mt-0">
+            <div className="relative z-10 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 to-transparent p-6 backdrop-blur-2xl shadow-2xl">
               {/* Fake UI Header */}
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "24px", paddingBottom: "16px", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-                <div style={{ display: "flex", gap: "8px" }}>
-                  <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#ff5f56" }} />
-                  <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#ffbd2e" }} />
-                  <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#27c93f" }} />
+              <div className="mb-6 flex items-center justify-between border-b border-white/10 pb-4">
+                <div className="flex gap-2.5">
+                  <div className="h-3 w-3 rounded-full bg-red-500 shadow-sm" />
+                  <div className="h-3 w-3 rounded-full bg-yellow-400 shadow-sm" />
+                  <div className="h-3 w-3 rounded-full bg-green-500 shadow-sm" />
                 </div>
-                <div style={{ fontSize: "12px", color: "rgba(244, 247, 246, 0.4)", fontWeight: 500 }}>app.reactive.com</div>
+                <div className="text-xs font-medium text-white/40">app.reactive.com</div>
               </div>
 
               {/* Code/Flow Visual */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                <div style={{ padding: "16px", borderRadius: "8px", background: "rgba(0,0,0,0.4)", border: "1px solid rgba(255,255,255,0.05)" }}>
-                  <div style={{ color: "#c678dd", fontSize: "13px", fontFamily: "monospace", marginBottom: "8px" }}>// Workflow Pipeline</div>
-                  <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-                    <div style={{ color: "#e5c07b", fontSize: "14px", fontFamily: "monospace" }}>WebHook</div>
-                    <div style={{ color: "#abb2bf" }}>→</div>
-                    <div style={{ color: "#61afef", fontSize: "14px", fontFamily: "monospace" }}>Transform</div>
-                    <div style={{ color: "#abb2bf" }}>→</div>
-                    <div style={{ color: "#98c379", fontSize: "14px", fontFamily: "monospace" }}>Database</div>
+              <div className="flex flex-col gap-4">
+                <div className="rounded-xl border border-white/5 bg-black/50 p-5 shadow-inner">
+                  <div className="mb-3 font-mono text-xs text-purple-400">// Workflow Pipeline</div>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <div className="rounded bg-yellow-500/10 px-2 py-1 font-mono text-sm text-yellow-500">WebHook</div>
+                    <div className="text-white/40">→</div>
+                    <div className="rounded bg-blue-400/10 px-2 py-1 font-mono text-sm text-blue-400">Transform</div>
+                    <div className="text-white/40">→</div>
+                    <div className="rounded bg-green-400/10 px-2 py-1 font-mono text-sm text-green-400">Database</div>
                   </div>
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
-                  <div style={{ padding: "16px", borderRadius: "8px", background: "rgba(0,0,0,0.4)", border: "1px solid rgba(255,255,255,0.05)" }}>
-                    <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)", marginBottom: "8px", textTransform: "uppercase" }}>Uptime</div>
-                    <div style={{ fontSize: "24px", fontWeight: 700, color: "#4ade80" }}>99.99%</div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="rounded-xl border border-white/5 bg-black/40 p-5 shadow-inner">
+                    <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-white/50">Uptime</div>
+                    <div className="text-3xl font-extrabold text-green-400">99.99%</div>
                   </div>
-                  <div style={{ padding: "16px", borderRadius: "8px", background: "rgba(0, 210, 255, 0.05)", border: "1px solid rgba(0, 210, 255, 0.2)" }}>
-                    <div style={{ fontSize: "11px", color: "rgba(0, 210, 255, 0.7)", marginBottom: "8px", textTransform: "uppercase" }}>Events Processed</div>
-                    <div style={{ fontSize: "24px", fontWeight: 700, color: "#00D2FF" }}>1.2M+</div>
+                  <div className="rounded-xl border border-brand-cyan/20 bg-brand-cyan/10 p-5 shadow-inner">
+                    <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-brand-cyan/80">Events Processed</div>
+                    <div className="text-3xl font-extrabold text-brand-cyan">1.2M+</div>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Floating decoration */}
-            <div 
-              style={{
-                position: "absolute",
-                top: "-20px",
-                right: "-20px",
-                width: "80px",
-                height: "80px",
-                background: "linear-gradient(135deg, #3A7BD5 0%, #00D2FF 100%)",
-                borderRadius: "50%",
-                filter: "blur(40px)",
-                opacity: 0.5,
-                zIndex: -1,
-                animation: "pulse-glow 4s infinite alternate"
-              }}
-            />
+            <div className="absolute -right-8 -top-8 -z-10 h-32 w-32 animate-[pulse_4s_ease-in-out_infinite] rounded-full bg-gradient-to-br from-brand-electric to-brand-cyan opacity-40 blur-[50px]" />
+            <div className="absolute -bottom-8 -left-8 -z-10 h-40 w-40 animate-[pulse_5s_ease-in-out_infinite] rounded-full bg-gradient-to-tr from-purple-500/30 to-brand-cyan/30 opacity-40 blur-[60px]" />
           </div>
         </div>
 
       </div>
-
-      <style>{`
-        @media (max-width: 900px) {
-          .solution-grid {
-            grid-template-columns: 1fr !important;
-            gap: 40px !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }
