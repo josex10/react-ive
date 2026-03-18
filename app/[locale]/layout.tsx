@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
-
+import {NextIntlClientProvider} from 'next-intl';
+import {getMessages} from 'next-intl/server';
+import {routing} from '../../i18n/routing';
+import {notFound} from 'next/navigation';
+import "../globals.css";
 const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
@@ -20,15 +23,32 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({locale}));
+}
+
+export default async function RootLayout({
   children,
+  params
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{locale: string}>;
 }>) {
+  const {locale} = await params;
+  
+  let currentLocale = locale;
+  if (!routing.locales.includes(locale as any)) {
+    currentLocale = routing.defaultLocale;
+  }
+  
+  const messages = await getMessages({ locale: currentLocale });
+
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang={currentLocale} className={inter.variable}>
       <body className="antialiased">
-        {children}
+        <NextIntlClientProvider messages={messages} locale={currentLocale}>
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

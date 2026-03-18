@@ -1,7 +1,9 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
 export default function Solution() {
+  const t = useTranslations('Solution');
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -25,8 +27,8 @@ export default function Solution() {
 
   const solutions = [
     {
-      title: "Custom Software",
-      description: "Tailor-made web applications that fit your exact business workflows perfectly, not standard templates.",
+      title: t('sol1Title'),
+      description: t('sol1Desc'),
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="16 18 22 12 16 6"></polyline>
@@ -35,8 +37,8 @@ export default function Solution() {
       )
     },
     {
-      title: "Process Automation",
-      description: "We connect APIs and automate repetitive tasks across your tools using modern architectures.",
+      title: t('sol2Title'),
+      description: t('sol2Desc'),
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="12" r="3"></circle>
@@ -45,8 +47,8 @@ export default function Solution() {
       )
     },
     {
-      title: "Real-time Dashboards",
-      description: "Get instant visibility into your entire operation with unified data metrics all in one place.",
+      title: t('sol3Title'),
+      description: t('sol3Desc'),
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
@@ -56,8 +58,8 @@ export default function Solution() {
       )
     },
     {
-      title: "Native Integrations",
-      description: "We integrate directly with ERPs, CRMs, WhatsApp, and Stripe for seamless business continuity.",
+      title: t('sol4Title'),
+      description: t('sol4Desc'),
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -82,15 +84,15 @@ export default function Solution() {
           {/* Left Side - Text */}
           <div className="flex flex-col">
             <div className="mb-6 self-start rounded-full border border-brand-electric/30 bg-brand-electric/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-electric">
-              How we do it
+              {t('badge')}
             </div>
             
             <h2 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-white md:text-5xl">
-              Everything you need to <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-electric to-brand-cyan">scale flawlessly</span>
+              {t('title')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-electric to-brand-cyan">{t('titleHighlight')}</span>
             </h2>
             
             <p className="mb-12 text-lg leading-relaxed text-white/70">
-              We don't just build software. We engineer automated workflows that eliminate human error and dramatically reduce operating costs.
+              {t('subtitle')}
             </p>
 
             <div className="flex flex-col gap-8">
@@ -124,7 +126,7 @@ export default function Solution() {
               {/* Code/Flow Visual */}
               <div className="flex flex-col gap-4">
                 <div className="rounded-xl border border-white/5 bg-black/50 p-5 shadow-inner">
-                  <div className="mb-3 font-mono text-xs text-purple-400">// Workflow Pipeline</div>
+                  <div className="mb-3 font-mono text-xs text-purple-400">{t('pipeline')}</div>
                   <div className="flex flex-wrap items-center gap-3">
                     <div className="rounded bg-yellow-500/10 px-2 py-1 font-mono text-sm text-yellow-500">WebHook</div>
                     <div className="text-white/40">→</div>
@@ -136,11 +138,11 @@ export default function Solution() {
 
                 <div className="grid grid-cols-2 gap-4">
                   <div className="rounded-xl border border-white/5 bg-black/40 p-5 shadow-inner">
-                    <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-white/50">Uptime</div>
+                    <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-white/50">{t('uptime')}</div>
                     <div className="text-3xl font-extrabold text-green-400">99.99%</div>
                   </div>
                   <div className="rounded-xl border border-brand-cyan/20 bg-brand-cyan/10 p-5 shadow-inner">
-                    <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-brand-cyan/80">Events Processed</div>
+                    <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-brand-cyan/80">{t('events')}</div>
                     <div className="text-3xl font-extrabold text-brand-cyan">1.2M+</div>
                   </div>
                 </div>

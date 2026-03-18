@@ -1,8 +1,10 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 export default function Hero() {
+  const t = useTranslations('Hero');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -28,24 +30,24 @@ export default function Hero() {
           {/* Eyebrow */}
           <div className="mb-8 flex items-center gap-2 rounded-full border border-brand-cyan/30 bg-brand-cyan/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-cyan shadow-lg shadow-brand-cyan/20">
             <span className="inline-block h-2 w-2 rounded-full bg-brand-cyan shadow-[0_0_10px_#00D2FF]"></span>
-            Make your business work smarter
+            {t('badge')}
           </div>
 
           {/* Headline */}
           <h1 className="mb-6 text-5xl font-extrabold leading-tight tracking-tight text-white md:text-7xl">
-            Automate your<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-electric to-purple-400">business processes</span>
+            {t('headline')}<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-electric to-purple-400">{t('headlineHighlight')}</span>
           </h1>
 
           {/* Subheadline */}
           <p className="mb-10 max-w-2xl text-lg text-white/70 md:text-xl">
-            We replace Excel and manual workflows with custom software solutions designed for scale.
+            {t('subheadline')}
           </p>
 
           {/* CTAs */}
           <div className="flex flex-wrap justify-center gap-4">
             <a href="https://calendly.com/" target="_blank" rel="noopener noreferrer" className="btn-primary">
-              Book a free call
+              {t('bookCall')}
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
@@ -56,7 +58,7 @@ export default function Hero() {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347" />
               </svg>
-              Chat on WhatsApp
+              {t('chatWhatsApp')}
             </a>
           </div>
         </div>
@@ -75,7 +77,7 @@ export default function Hero() {
           >
             <div className="mb-3 flex items-center gap-3">
               <div className="flex h-6 w-6 items-center justify-center rounded bg-green-700 text-xs font-bold text-white">X</div>
-              <span className="text-xs font-medium text-white/90">inventory.xlsx</span>
+              <span className="text-xs font-medium text-white/90">{t('floatingChaos1')}</span>
             </div>
             <div className="mb-2 h-1.5 w-full rounded-full bg-white/20" />
             <div className="mb-2 h-1.5 w-4/5 rounded-full bg-white/20" />
@@ -90,8 +92,8 @@ export default function Hero() {
               transitionDelay: "500ms"
             }}
           >
-            <div className="mb-2 text-xs font-bold text-yellow-400">⚠️ Manual orders</div>
-            <div className="text-[10px] text-white/60">Order #4092 - Pending...</div>
+            <div className="mb-2 text-xs font-bold text-yellow-400">⚠️ {t('floatingChaos2')}</div>
+            <div className="text-[10px] text-white/60">{t('floatingChaos3')}</div>
           </div>
 
           <div
@@ -106,10 +108,10 @@ export default function Hero() {
               <div className="flex h-5 w-5 items-center justify-center rounded-full bg-green-500">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M12 0a12 12 0 1012 12A12.013 12.013 0 0012 0z" /></svg>
               </div>
-              <span className="text-xs font-medium text-white/90">Client Messages</span>
+              <span className="text-xs font-medium text-white/90">{t('floatingChaos4')}</span>
             </div>
-            <div className="mb-2 rounded-lg bg-white/10 p-2 text-[10px] text-white/70">Where is my order?</div>
-            <div className="rounded-lg bg-brand-cyan/20 p-2 text-right text-[10px] text-brand-cyan">Let me check...</div>
+            <div className="mb-2 rounded-lg bg-white/10 p-2 text-[10px] text-white/70">{t('floatingChaos5')}</div>
+            <div className="rounded-lg bg-brand-cyan/20 p-2 text-right text-[10px] text-brand-cyan">{t('floatingChaos6')}</div>
           </div>
 
           <div
@@ -156,26 +158,22 @@ export default function Hero() {
               <div className="mb-5 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <Image src="/reactive-logo.svg" alt="Logo" width={100} height={100} />
-                  {/* <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-brand-electric to-brand-cyan shadow-lg">
-                    <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M3 9L7.5 4.5L12 9L7.5 13.5L3 9Z" fill="white" /><path d="M8 9L12.5 4.5L15 7L10.5 11.5L8 9Z" fill="white" className="opacity-60" /></svg>
-                  </div>
-                  <span className="text-sm font-bold text-white">reactIVE System</span> */}
                 </div>
-                <div className="rounded-full bg-brand-cyan/20 px-2.5 py-1 text-[10px] font-bold text-brand-cyan tracking-wider">SYNCED</div>
+                <div className="rounded-full bg-brand-cyan/20 px-2.5 py-1 text-[10px] font-bold text-brand-cyan tracking-wider">{t('synced')}</div>
               </div>
 
               <div className="flex flex-col gap-3">
                 <div className="flex items-center justify-between rounded-xl bg-white/10 px-4 py-2.5">
-                  <span className="text-xs font-medium text-white/80">Inventory DB</span>
-                  <span className="text-xs font-bold text-green-400">Updated</span>
+                  <span className="text-xs font-medium text-white/80">{t('inventoryDb')}</span>
+                  <span className="text-xs font-bold text-green-400">{t('updated')}</span>
                 </div>
                 <div className="flex items-center justify-between rounded-xl bg-white/10 px-4 py-2.5">
-                  <span className="text-xs font-medium text-white/80">Orders API</span>
-                  <span className="text-xs font-bold text-green-400">Processing</span>
+                  <span className="text-xs font-medium text-white/80">{t('ordersApi')}</span>
+                  <span className="text-xs font-bold text-green-400">{t('processing')}</span>
                 </div>
                 <div className="flex items-center justify-between rounded-xl bg-white/10 px-4 py-2.5">
-                  <span className="text-xs font-medium text-white/80">Client Messages</span>
-                  <span className="text-xs font-bold text-green-400">Automated</span>
+                  <span className="text-xs font-medium text-white/80">{t('clientComms')}</span>
+                  <span className="text-xs font-bold text-green-400">{t('automated')}</span>
                 </div>
               </div>
 

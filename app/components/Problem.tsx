@@ -1,7 +1,9 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
 export default function Problem() {
+  const t = useTranslations('Problem');
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -32,8 +34,8 @@ export default function Problem() {
           <line x1="12" y1="17" x2="12.01" y2="17"></line>
         </svg>
       ),
-      title: "Manual Errors",
-      description: "Copy-pasting data across systems leads to expensive mistakes and lost revenue.",
+      title: t('card1Title'),
+      description: t('card1Desc'),
       delay: "delay-0"
     },
     {
@@ -43,8 +45,8 @@ export default function Problem() {
           <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
         </svg>
       ),
-      title: "Duplicated Data",
-      description: "Entering the same information in Excel, CRM, and accounting software wastes hours.",
+      title: t('card2Title'),
+      description: t('card2Desc'),
       delay: "delay-100"
     },
     {
@@ -54,8 +56,8 @@ export default function Problem() {
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
       ),
-      title: "Slow Processes",
-      description: "Bottlenecks in approval workflows and manual report generation slow down growth.",
+      title: t('card3Title'),
+      description: t('card3Desc'),
       delay: "delay-200"
     },
     {
@@ -66,8 +68,8 @@ export default function Problem() {
           <line x1="1" y1="1" x2="23" y2="23"></line>
         </svg>
       ),
-      title: "Lack of Visibility",
-      description: "Unable to see real-time metrics because data is scattered across multiple spreadsheets.",
+      title: t('card4Title'),
+      description: t('card4Desc'),
       delay: "delay-300"
     }
   ];
@@ -82,10 +84,10 @@ export default function Problem() {
         
         <div className="mb-20 text-center">
           <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-white md:text-5xl">
-            The hidden cost of <span className="text-white/40">manual work</span>
+            {t('title')} <span className="text-white/40">{t('titleHighlight')}</span>
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-white/70">
-            Every hour your team spends moving data manually is an hour they aren't growing your business.
+            {t('subtitle')}
           </p>
         </div>
 

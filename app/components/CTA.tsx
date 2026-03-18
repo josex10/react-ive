@@ -1,7 +1,9 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
 export default function CTA() {
+  const t = useTranslations('CTA');
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -37,17 +39,17 @@ export default function CTA() {
           
           <div className="relative z-10">
             <h2 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-white md:text-6xl">
-              Stop wasting time with <br className="hidden md:block"/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-electric to-brand-cyan">manual processes</span>
+              {t('title')} <br className="hidden md:block"/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-electric to-brand-cyan">{t('titleHighlight')}</span>
             </h2>
             
             <p className="mx-auto mb-12 max-w-2xl text-lg leading-relaxed text-white/80 md:text-xl">
-              Transform your business operations in weeks, not months. Join the companies that have already scaled with reactIVE.
+              {t('subtitle')}
             </p>
             
             <div className="flex flex-wrap justify-center gap-4">
               <a href="https://calendly.com/" target="_blank" rel="noopener noreferrer" className="btn-primary">
-                Schedule your free consultation
+                {t('bookBtn')}
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
@@ -55,7 +57,7 @@ export default function CTA() {
             </div>
 
             <p className="mt-8 text-sm font-medium text-white/50">
-              No pressure. Just a conversation about your business bottlenecks.
+              {t('disclaimer')}
             </p>
           </div>
         </div>

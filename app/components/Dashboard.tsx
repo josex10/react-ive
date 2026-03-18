@@ -1,8 +1,10 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
 export default function Dashboard() {
+  const t = useTranslations('Dashboard');
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -33,10 +35,10 @@ export default function Dashboard() {
 
         <div className="mb-20 text-center">
           <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-white md:text-5xl">
-            See your business, <span className="text-white/40">clearly</span>
+            {t('title')} <span className="text-white/40">{t('titleHighlight')}</span>
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-white/70">
-            Our custom dashboards give you real-time visibility into all your operations without touching a single spreadsheet.
+            {t('subtitle')}
           </p>
         </div>
 
@@ -51,14 +53,14 @@ export default function Dashboard() {
               <div className="flex items-center gap-4">
                 <Image src="/reactive-logo-isotipo.svg" alt="Logo" width={32} height={32} />
                 <div className="hidden sm:block">
-                  <span className="text-sm font-bold text-white">Operations Center</span>
+                  <span className="text-sm font-bold text-white">{t('opsCenter')}</span>
                 </div>
               </div>
 
               <div className="flex items-center gap-5">
                 <div className="hidden items-center gap-2 rounded-full bg-white/5 px-4 py-1.5 text-xs font-medium text-white/40 md:flex">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                  Search everything... (⌘K)
+                  {t('search')}
                 </div>
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-tr from-品牌-cyan to-white/20 text-xs font-bold text-white shadow-inner">
                   JB
@@ -69,7 +71,7 @@ export default function Dashboard() {
             <div className="flex flex-col md:flex-row min-h-[600px]">
               {/* Sidebar */}
               <div className="hidden w-60 flex-col gap-2 border-r border-white/5 bg-white/[0.02] px-4 py-6 md:flex">
-                {['Overview', 'Orders', 'Inventory', 'Customers', 'Analytics', 'Settings'].map((item, i) => (
+                {[t('nav1'), t('nav2'), t('nav3'), t('nav4'), t('nav5'), t('nav6')].map((item, i) => (
                   <div
                     key={item}
                     className={`flex cursor-pointer items-center gap-3 rounded-xl px-4 py-3 text-sm transition-colors ${i === 0 ? 'bg-brand-cyan/10 font-bold text-brand-cyan' : 'font-medium text-white/50 hover:bg-white/5 hover:text-white/80'}`}
@@ -85,10 +87,10 @@ export default function Dashboard() {
                 {/* Header Stats */}
                 <div className="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
                   {[
-                    { label: "Total Revenue", value: "$124,500", trend: "+12.5%", positive: true },
-                    { label: "Active Orders", value: "843", trend: "+5.2%", positive: true },
-                    { label: "Avg. Processing Time", value: "2.4 hrs", trend: "-1.5 hrs", positive: true },
-                    { label: "Pending Approvals", value: "12", trend: "Requires action", positive: false }
+                    { label: t('stat1'), value: "$124,500", trend: "+12.5%", positive: true },
+                    { label: t('stat2'), value: "843", trend: "+5.2%", positive: true },
+                    { label: t('stat3'), value: "2.4 hrs", trend: t('stat3Trend'), positive: true },
+                    { label: t('stat4'), value: "12", trend: t('stat4Trend'), positive: false }
                   ].map((stat, i) => (
                     <div
                       key={i}
@@ -106,7 +108,7 @@ export default function Dashboard() {
 
                   {/* Main Chart */}
                   <div className="rounded-2xl border border-white/5 bg-white/5 p-6 shadow-sm backdrop-blur-md">
-                    <div className="mb-8 text-sm font-bold text-white">Order Volume (30 Days)</div>
+                    <div className="mb-8 text-sm font-bold text-white">{t('chartTitle')}</div>
 
                     {/* Fake Bar Chart */}
                     <div className="mt-5 flex h-[220px] items-end gap-2.5">
@@ -130,15 +132,15 @@ export default function Dashboard() {
 
                   {/* List / Activity */}
                   <div className="rounded-2xl border border-white/5 bg-white/5 p-6 shadow-sm backdrop-blur-md">
-                    <div className="mb-6 text-sm font-bold text-white">Recent Activity</div>
+                    <div className="mb-6 text-sm font-bold text-white">{t('activityTitle')}</div>
 
                     <div className="flex flex-col gap-5">
                       {[
-                        { text: "Order #4092 processed", time: "2 min ago", color: "bg-green-400" },
-                        { text: "Inventory alert: SKU-192", time: "15 min ago", color: "bg-yellow-400" },
-                        { text: "New client registered", time: "1 hr ago", color: "bg-brand-cyan" },
-                        { text: "Daily report generated", time: "3 hrs ago", color: "bg-white/40" },
-                        { text: "API Sync completed", time: "4 hrs ago", color: "bg-green-400" }
+                        { text: t('act1'), time: t('act1Time'), color: "bg-green-400" },
+                        { text: t('act2'), time: t('act2Time'), color: "bg-yellow-400" },
+                        { text: t('act3'), time: t('act3Time'), color: "bg-brand-cyan" },
+                        { text: t('act4'), time: t('act4Time'), color: "bg-white/40" },
+                        { text: t('act5'), time: t('act5Time'), color: "bg-green-400" }
                       ].map((item, i) => (
                         <div key={i} className="flex items-start gap-3">
                           <div className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${item.color} shadow-sm`} />
