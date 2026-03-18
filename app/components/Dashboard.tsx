@@ -111,14 +111,16 @@ export default function Dashboard() {
                     {/* Fake Bar Chart */}
                     <div className="mt-5 flex h-[220px] items-end gap-2.5">
                       {[...Array(24)].map((_, i) => {
-                        const height = Math.floor(Math.random() * 70) + 30;
+                        // Deterministic pseudo-random height so SSR and Client match perfectly
+                        const height = 30 + ((i * 37) % 70);
                         return (
                           <div
                             key={i}
                             style={{
-                              animation: `bar-grow 1s ease forwards ${i * 0.04}s`,
-                              height: `${height}%` // Using inline style ONLY for dynamic height mapping
-                            }}
+                              animation: isVisible ? `bar-grow 1s ease forwards ${i * 0.04}s` : 'none',
+                              "--bar-h": `${height}%`,
+                              height: isVisible ? 0 : `${height}%` // Initialize at 0 if animating, or fallback to height
+                            } as React.CSSProperties}
                             className={`flex-1 rounded-t-sm w-full ${i === 23 ? 'bg-gradient-to-t from-brand-electric to-brand-cyan shadow-[0_0_15px_rgba(0,210,255,0.4)]' : 'bg-white/10 hover:bg-white/20 transition-colors'}`}
                           />
                         );
