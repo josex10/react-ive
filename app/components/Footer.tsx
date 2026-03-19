@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { WHATSAPP_LINK } from "@/constants/app.contantants";
 
 export default function Footer() {
   const t = useTranslations('Footer');
@@ -21,7 +22,7 @@ export default function Footer() {
             </p>
 
             <a
-              href="https://wa.me/1234567890"
+              href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2.5 text-sm font-semibold text-[#F4F7F6] no-underline transition-all duration-200 hover:bg-white/10 hover:text-[#25D366]"
@@ -46,7 +47,6 @@ export default function Footer() {
             <div className="flex flex-col gap-3 md:gap-4">
               <div className="mb-1 md:mb-2 text-sm md:text-[15px] font-semibold text-[#F4F7F6]">{t('company')}</div>
               <a href="#" className="text-xs md:text-sm text-[#F4F7F6]/60 no-underline transition-colors duration-200 hover:text-[#00D2FF]">{t('about')}</a>
-              <a href="#" className="text-xs md:text-sm text-[#F4F7F6]/60 no-underline transition-colors duration-200 hover:text-[#00D2FF]">Case Studies</a>
               <a href="#" className="text-xs md:text-sm text-[#F4F7F6]/60 no-underline transition-colors duration-200 hover:text-[#00D2FF]">{t('contact')}</a>
             </div>
           </div>
@@ -58,8 +58,6 @@ export default function Footer() {
           </div>
           <div className="flex items-center gap-6">
             <LanguageSwitcher />
-            <a href="#" className="text-[11px] md:text-[13px] text-[#F4F7F6]/40 no-underline hover:text-white/60">{t('privacy')}</a>
-            <a href="#" className="text-[11px] md:text-[13px] text-[#F4F7F6]/40 no-underline hover:text-white/60">{t('terms')}</a>
           </div>
         </div>
       </div>

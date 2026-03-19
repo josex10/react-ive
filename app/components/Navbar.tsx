@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
+import { WHATSAPP_LINK } from "@/constants/app.contantants";
 
 export default function Navbar() {
   const t = useTranslations('Navbar');
@@ -15,9 +16,8 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
+    { id: "problem", label: t('problems') },
     { id: "solutions", label: t('solutions') },
-    { id: "how-it-works", label: t('howItWorks') },
-    { id: "case-studies", label: t('caseStudies') }
   ];
 
   return (
@@ -46,12 +46,13 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="https://wa.me/1234567890"
+              href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"
             >
-              {t('bookCall')}
+              <Image src="/whatsapp.svg" alt="WhatsApp" width={20} height={20} />
+              {t('chatWhatsApp')}
             </a>
           </div>
 
@@ -93,13 +94,13 @@ export default function Navbar() {
           </a>
         ))}
         <a
-          href="https://wa.me/1234567890"
+          href={WHATSAPP_LINK}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => setIsMenuOpen(false)}
           className="btn-primary mt-4 scale-125"
         >
-          {t('bookCall')}
+          {t('chatWhatsApp')}
         </a>
         {/* Spacer for scrollability */}
         <div className="h-20 shrink-0" />

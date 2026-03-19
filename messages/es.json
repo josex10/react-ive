@@ -2,9 +2,9 @@
   "Navbar": {
     "skipToContent": "Saltar al contenido principal",
     "solutions": "Soluciones",
-    "howItWorks": "Cómo funciona",
-    "caseStudies": "Casos de éxito",
-    "bookCall": "Agendar llamada gratuita"
+    "problems": "Problemas comunes",
+    "bookCall": "Agendar llamada gratuita",
+    "chatWhatsApp": "Chatear por WhatsApp"
   },
   "Hero": {
     "badge": "Haz que tu negocio trabaje de forma inteligente",
